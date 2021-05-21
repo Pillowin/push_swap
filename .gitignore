@@ -1,0 +1,5 @@
+*.o
+*.a
+a.out
+a.out*
+push_swap
