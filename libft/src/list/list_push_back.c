@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   list_push_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 18:26:49 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/23 13:21:53 by agautier         ###   ########.fr       */
+/*   Created: 2021/05/22 12:03:19 by agautier          #+#    #+#             */
+/*   Updated: 2021/05/22 12:09:47 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
+/*
+**	Add a new list node at the end of the list.
+*/
 
-#endif
+t_node	*list_push_back(t_list **alist, void *data)
+{
+	t_list	*list;
+	t_node	*node
+
+	list = *alist;
+	node = node_new(data);
+	if (!node)
+		return (NULL);
+	if (list->end)
+		list->end->next = node;
+	else
+		list->begin = node;
+	list->size += 1;
+	return (node);
+}

@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   gc_clear.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 18:26:49 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/23 13:21:53 by agautier         ###   ########.fr       */
+/*   Created: 2021/05/24 15:49:53 by agautier          #+#    #+#             */
+/*   Updated: 2021/05/24 15:53:13 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
+void	gc_clear(t_gc *gc)
+{
+	unsigned int	i;
 
-#endif
+	i = 0;
+	while (i < gc->head)
+	{
+		if (gc->ptrs[i])
+			free(gc->ptrs[i]);
+		gc->ptrs [i] = NULL;
+		i++;
+	}
+	if (gc->ptrs)
+	{
+		free(gc->ptrs);
+		gc->ptrs = NULL;
+	}
+	gc->head = 0;
+	gc->size = 0;
+}

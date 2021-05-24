@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   gc_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 18:26:49 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/23 13:21:53 by agautier         ###   ########.fr       */
+/*   Created: 2021/05/22 12:38:58 by agautier          #+#    #+#             */
+/*   Updated: 2021/05/24 15:48:39 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
+/*
+**	Free a ptr, NULL it in gc array.
+*/
 
-#endif
+void	gc_free(t_gc *gc, void **ptr)
+{
+	unsigned int	i;
+
+	if (!ptr || !*ptr)
+		return ;
+	i = 0;
+	while (i < gc->head)
+	{
+		if (gc->ptrs[i] == ptr)
+		{
+			free(gc->ptrs);
+			gc->ptrs = NULL;
+		}
+		i++;
+	}
+}

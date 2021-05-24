@@ -1,5 +1,6 @@
 *.o
 *.a
 a.out
-a.out*
 push_swap
+*.dSYM
+.DS_Store

@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   gc_new.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 18:26:49 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/23 13:21:53 by agautier         ###   ########.fr       */
+/*   Created: 2021/05/23 13:30:17 by agautier          #+#    #+#             */
+/*   Updated: 2021/05/24 15:38:04 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
-
-#endif
+t_gc	*gc_new(t_gc *gc)
+{
+	gc->ptrs = (void **)malloc(sizeof(*(gc->ptrs)) * GC_SIZE);
+	if (!gc->ptrs)
+		return (NULL);
+	gc->size = GC_SIZE;
+	gc->head = 0;
+	return (gc);
+}
