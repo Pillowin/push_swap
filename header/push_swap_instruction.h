@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   push_swap_instruction.h                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 18:39:50 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/25 22:44:14 by agautier         ###   ########.fr       */
+/*   Created: 2021/05/25 22:46:59 by agautier          #+#    #+#             */
+/*   Updated: 2021/05/25 22:47:00 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PUSH_SWAP_INSTRUCTION_H
+# define PUSH_SWAP_INSTRUCTION_H
 
-/*
-**	swap a
-**	Swap the first 2 elements at the top of stack a.
-**	Do nothing if there is only one or no elements.
-*/
+# include "libft.h"
 
-t_bool	sa(t_gc *gc, t_list **a, t_list **b)
-{
-	t_list	*list;
-	void	*tmp;
+t_bool	sa(t_gc *gc, t_list **a, t_list **b);
+t_bool	sb(t_gc *gc, t_list **a, t_list **b);
+t_bool	ss(t_gc *gc, t_list **a, t_list **b);
 
-	(void)gc;
-	(void)b;
-	list = *a;
-	tmp = list->begin->data;
-	list->begin->data = list->begin->next->data;
-	list->begin->next->data = tmp;
-	return (TRUE);
-}
+#endif

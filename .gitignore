@@ -1,6 +1,7 @@
-*.o
-*.a
+**.o
+**.a
 a.out
 push_swap
-*.dSYM
+**.dSYM
 .DS_Store
+**.swp

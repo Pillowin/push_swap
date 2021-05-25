@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 18:39:50 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/25 22:44:14 by agautier         ###   ########.fr       */
+/*   Created: 2021/05/25 22:12:07 by agautier          #+#    #+#             */
+/*   Updated: 2021/05/25 22:19:05 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
-**	swap a
-**	Swap the first 2 elements at the top of stack a.
-**	Do nothing if there is only one or no elements.
+**	Call gc_clear before returning EXIT_SUCCESS.
 */
 
-t_bool	sa(t_gc *gc, t_list **a, t_list **b)
+t_bool	exit_success(t_gc *gc)
 {
-	t_list	*list;
-	void	*tmp;
+	gc_clear(gc);
+	return (EXIT_SUCCESS);
+}
 
-	(void)gc;
-	(void)b;
-	list = *a;
-	tmp = list->begin->data;
-	list->begin->data = list->begin->next->data;
-	list->begin->next->data = tmp;
-	return (TRUE);
+/*
+**	Call gc_clear before returning EXIT_FAILURE.
+*/
+
+t_bool	exit_failure(t_gc *gc)
+{
+	gc_clear(gc);
+	return (EXIT_FAILURE);
 }

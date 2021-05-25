@@ -6,15 +6,15 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 20:01:36 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/25 21:24:35 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/25 22:04:20 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIST_H
 # define LIST_H
 
-#include <stdlib.h>
-#include "gc.h"
+# include <stdlib.h>
+# include "gc.h"
 
 typedef struct s_list	t_list;
 typedef struct s_node	t_node;

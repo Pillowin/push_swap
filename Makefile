@@ -6,7 +6,7 @@
 #    By: agautier <agautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 18:24:31 by agautier          #+#    #+#              #
-#    Updated: 2021/05/25 21:34:12 by agautier         ###   ########.fr        #
+#    Updated: 2021/05/25 22:13:23 by agautier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ $(NAME): libft $(OBJ)
 
 libft:
 	make -C libft
+
 clean:
 	make clean -C libft
 	rm -f $(OBJ)

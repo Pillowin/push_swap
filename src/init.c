@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 18:39:50 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/25 22:44:14 by agautier         ###   ########.fr       */
+/*   Created: 2021/05/25 22:14:33 by agautier          #+#    #+#             */
+/*   Updated: 2021/05/25 22:19:11 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
-**	swap a
-**	Swap the first 2 elements at the top of stack a.
-**	Do nothing if there is only one or no elements.
+**	Init stack `a` from argv.
+**	TODO: check for errors
 */
 
-t_bool	sa(t_gc *gc, t_list **a, t_list **b)
+t_bool	init_a(t_gc *gc, t_list **a, int argc, char **argv)
 {
-	t_list	*list;
-	void	*tmp;
+	int	i;
 
-	(void)gc;
-	(void)b;
-	list = *a;
-	tmp = list->begin->data;
-	list->begin->data = list->begin->next->data;
-	list->begin->next->data = tmp;
+	i = 0;
+	while (i < argc)
+	{
+		if (!list_push_back(gc, a, argv[i]))
+		{
+			gc_clear(gc);
+			return (FALSE);
+		}
+		i++;
+	}
 	return (TRUE);
 }
