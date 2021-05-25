@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   list_print.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 10:55:09 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/21 21:04:28 by agautier         ###   ########.fr       */
+/*   Created: 2021/05/25 21:29:49 by agautier          #+#    #+#             */
+/*   Updated: 2021/05/25 21:32:47 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-**	Write string `s` on given filedescriptor.
-*/
-
-void	ft_putstr_fd(char *s, int fd)
+void	list_print(t_list *list)
 {
-	int	len;
+	t_node	*curr;
 
-	if (!s)
-		return ;
-	len = 0;
-	while (s[len])
-		len++;
-	write(fd, s, len);
+	curr = list->begin;
+	while (curr)
+	{
+		printf("%d\n", *(int *)(curr->data));
+		curr = curr->next;
+	}
 }

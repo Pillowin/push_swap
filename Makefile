@@ -6,7 +6,7 @@
 #    By: agautier <agautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 18:24:31 by agautier          #+#    #+#              #
-#    Updated: 2021/05/24 16:18:50 by agautier         ###   ########.fr        #
+#    Updated: 2021/05/25 21:34:12 by agautier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ			=	$(SRC:.c=.o)
 CC			=	gcc
 HEADER		=	-Iheader -Ilibft/header
 LIB			=	-Llibft
-CFLAGS		=	-Wall -Wextra -Werror -g3 #-fsanitize=address
+CFLAGS		=	-Wall -Wextra -Werror -g3 -fsanitize=address
 
 all: $(NAME)
 
