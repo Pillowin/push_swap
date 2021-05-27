@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 20:22:33 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/25 21:16:24 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/27 12:48:00 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 /*
 **	Create a new list.
 */
-
 t_list	*list_new(t_gc *gc)
 {
 	t_list	*list;

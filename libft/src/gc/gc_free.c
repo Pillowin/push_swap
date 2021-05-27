@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 12:38:58 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/24 15:48:39 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/27 12:51:14 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 /*
 **	Free a ptr, NULL it in gc array.
 */
-
 void	gc_free(t_gc *gc, void **ptr)
 {
 	unsigned int	i;

@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 12:01:15 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/24 15:46:04 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/27 13:05:07 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 /*
 **	Extend the size of the garbage array.
 */
-
 static t_gc	*gc_realloc(t_gc *gc)
 {
 	void			**tmp;
@@ -39,13 +38,12 @@ static t_gc	*gc_realloc(t_gc *gc)
 /*
 **	Assign a new ptr with ft_calloc and register it to list gc.
 */
-
 void	*gc_calloc(t_gc *gc, size_t count, size_t size)
 {
 	unsigned char	*ptr;
 	size_t			i;
 
-	ptr = (unsigned char*)malloc(size * count);
+	ptr = (unsigned char *)malloc(size * count);
 	if (!ptr)
 		return (NULL);
 	i = 0;

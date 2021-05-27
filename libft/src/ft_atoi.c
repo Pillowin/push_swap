@@ -6,13 +6,11 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 10:47:33 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/25 21:55:33 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/27 12:47:52 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-**	man atoi
-*/
+#include "libft.h"
 
 static char	is_whitespace(char c)
 {
@@ -25,6 +23,9 @@ static char	is_digit(char c)
 	return (c >= '0' && c <= '9');
 }
 
+/*
+**	man atoi
+*/
 int	ft_atoi(const char *str)
 {
 	int	neg;

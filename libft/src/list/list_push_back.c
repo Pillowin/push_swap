@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 12:03:19 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/25 21:43:32 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/27 12:50:04 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 /*
 **	Add a new list node at the end of the list.
 */
-
 t_node	*list_push_back(t_gc *gc, t_list **alist, void *data)
 {
 	t_list	*list;
