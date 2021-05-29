@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 12:01:15 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/27 13:05:07 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/28 12:48:49 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ static t_gc	*gc_realloc(t_gc *gc)
 	while (i < gc->head)
 	{
 		tmp[i] = gc->ptrs[i];
+		i++;
+	}
+	while (i < gc->size + GC_SIZE)
+	{
+		tmp[i] = NULL;
 		i++;
 	}
 	free(gc->ptrs);

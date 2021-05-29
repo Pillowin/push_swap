@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gc_new.c                                           :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 13:30:17 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/28 12:48:17 by agautier         ###   ########.fr       */
+/*   Created: 2019/11/08 10:54:41 by agautier          #+#    #+#             */
+/*   Updated: 2021/05/28 12:10:46 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-**	Create a new gc array.
+**	Outputs the string ’s’ to the given file descriptor, followed by a newline.
 */
-t_gc	*gc_new(t_gc *gc)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	i;
+	size_t	len;
 
-	gc->ptrs = (void **)malloc(sizeof(*(gc->ptrs)) * GC_SIZE);
-	if (!gc->ptrs)
-		return (NULL);
-	i = 0;
-	while (i < GC_SIZE)
-	{
-		gc->ptrs[i] = NULL;
-		i++;
-	}
-	gc->size = GC_SIZE;
-	gc->head = 0;
-	return (gc);
+	if (!s)
+		return ;
+	len = 0;
+	while (s[len])
+		len++;
+	write(fd, s, len);
+	write(fd, "\n", 1);
 }

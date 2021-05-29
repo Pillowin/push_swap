@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.h                                             :+:      :+:    :+:   */
+/*   libft_list.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 20:01:36 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/25 22:04:20 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/29 18:14:32 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_H
-# define LIST_H
+#ifndef LIBFT_LIST_H
+# define LIBFT_LIST_H
 
 # include <stdlib.h>
-# include "gc.h"
+# include "libft_gc.h"
 
 typedef struct s_list	t_list;
 typedef struct s_node	t_node;
