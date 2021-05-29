@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 19:01:46 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/21 19:01:50 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/29 18:11:55 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 /*
 **	rra and rrb at the same time.
 */
-void	rrr()
+void	rrr(t_list **a, t_list **b)
 {
-
+	rra(a, b);
+	rrb(a, b);
 }

@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:43:34 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/25 22:45:07 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/29 18:09:03 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 /*
 **	sa and sb at the same time.
 */
-
-t_bool	ss(t_gc *gc, t_list **a, t_list **b)
+void	ss(t_list **a, t_list **b)
 {
-	sa(gc, a, b);
-	sb(gc, a, b);
-	return (TRUE);
+	sa(a, b);
+	sb(a, b);
 }
