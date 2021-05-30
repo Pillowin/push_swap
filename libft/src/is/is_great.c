@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_str.h                                        :+:      :+:    :+:   */
+/*   is_great.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 12:20:01 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/30 17:14:50 by agautier         ###   ########.fr       */
+/*   Created: 2021/05/30 17:09:17 by agautier          #+#    #+#             */
+/*   Updated: 2021/05/30 17:10:16 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_STR_H
-#define LIBFT_STR_H
+#include "libft.h"
 
-int	ft_atoi(const char *str);
-
-#endif
+/*
+**	Return TRUE if a is greater than b, else return FALSE.
+*/
+t_bool	is_great(int a, int b)
+{
+	return (a > b);
+}

@@ -6,7 +6,7 @@
 #    By: agautier <agautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/05 12:52:43 by agautier          #+#    #+#              #
-#    Updated: 2021/05/30 12:34:16 by agautier         ###   ########.fr        #
+#    Updated: 2021/05/30 17:12:44 by agautier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,11 @@ SRC		=	$(addprefix src/,			\
 				list/list_print.c		\
 				\
 				str/ft_atoi.c			\
-				str/is_int.c			\
 				\
 				print/ft_putendl_fd.c	\
+				\
+				is/is_great.c			\
+				is/is_int.c				\
 			)
 OBJ		=	$(SRC:.c=.o)
 HEADER	=	header
