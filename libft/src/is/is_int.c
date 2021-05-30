@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 11:52:24 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/30 12:36:58 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/30 23:00:18 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ t_bool	is_int(char *str)
 	{
 		neg = 1;
 		i++;
+		if (!is_digit(str[i]))
+			return (FALSE);
 	}
 	res = 0;
 	while (str[i] && is_digit(str[i]))
