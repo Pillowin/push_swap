@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 18:26:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/30 18:28:41 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/30 21:35:24 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include "libft.h"
 
-void	sort_very_small(t_list **a, t_list **b);
+t_bool	sort_very_small(t_gc *gc, t_list **a, t_list **b, t_list **output);
 
-void	sort_two(t_list **a, t_list **b);
-void	sort_three(t_list **a, t_list **b);
+t_bool	sort_two(t_gc *gc, t_list **a, t_list **b, t_list **output);
+t_bool	sort_three(t_gc *gc, t_list **a, t_list **b, t_list **output);
 
 #endif

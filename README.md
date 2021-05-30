@@ -15,7 +15,7 @@ This project will make you sort data on a stack, with a limited set of instructi
 - ~~Implement operations~~
 - ~~Handle error cases~~
 - ~~Parse arguments~~
-- Implement output list
+- ~~Implement output list~~
 - Sort manualy for very small lists
 - Insertion sort for small lists
 - Insertion sort for bug lists

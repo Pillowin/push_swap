@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:25:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/30 20:48:36 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/30 21:45:03 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 	t_list	*a;
 	t_list	*b;
 
-	if (argc <= 3)
+	if (argc <= 2)
 		return (EXIT_SUCCESS);
 
 	gc = gc_new(&((t_gc){NULL, 0, 0}));
@@ -62,14 +62,16 @@ int	main(int argc, char **argv)
 	list_print(b);
 
 	if (a->size <= 3)
-		sort_very_small(&a, &b);
+		sort_very_small(gc, &a, &b, &output);
 
 	printf("\n--------------\n");
-	printf("\nstack a\n");
+	printf("stack a\n");
 	list_print(a);
 	printf("\nstack b\n");
 	list_print(b);
 
+	printf("\n--------------\n");
+	printf("output\n");
 	print_output(output);
 	return (exit_success(gc));
 }
