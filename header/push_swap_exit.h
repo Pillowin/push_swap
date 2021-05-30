@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_exit.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 18:26:49 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/30 18:29:00 by agautier         ###   ########.fr       */
+/*   Created: 2021/05/30 15:09:20 by agautier          #+#    #+#             */
+/*   Updated: 2021/05/30 15:09:21 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_EXIT_H
+# define PUSH_SWAP_EXIT_H
 
-# include <unistd.h>
-# include <stdlib.h>
 # include "libft.h"
-# include "push_swap_parse.h"
-# include "push_swap_exit.h"
-# include "push_swap_instruction.h"
-# include "push_swap_sort.h"
+
+t_bool	exit_success(t_gc *gc);
+t_bool	exit_failure(t_gc *gc);
 
 #endif

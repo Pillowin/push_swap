@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 18:26:49 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/30 18:29:00 by agautier         ###   ########.fr       */
+/*   Created: 2021/05/30 18:29:43 by agautier          #+#    #+#             */
+/*   Updated: 2021/05/30 18:30:33 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+# include "push_swap.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
-# include "push_swap_parse.h"
-# include "push_swap_exit.h"
-# include "push_swap_instruction.h"
-# include "push_swap_sort.h"
-
-#endif
+/*
+**
+*/
+void	sort_three(t_list **a, t_list **b)
+{
+	(void)a;
+	(void)b;
+}
