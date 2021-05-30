@@ -6,17 +6,15 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:25:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/25 22:47:42 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/29 18:04:49 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
 /*
 **	Init gc, both stacks then starts push_swap.
 */
-
 int	main(int argc, char **argv)
 {
 	t_gc	*gc;
@@ -34,10 +32,20 @@ int	main(int argc, char **argv)
 	b = list_new(gc);
 	if (!b)
 		return (exit_failure(gc));
-	if (!init_a(gc, &a, argc, argv + 1))
+	if (!parse(gc, &a, argc, argv + 1))
 		return (exit_failure(gc));
+
+	printf("stack a\n");
 	list_print(a);
-	sa(gc, &a, &b);
+	printf("\nstack b\n");
+	list_print(b);
+
+	rrb(&b, &a);
+
+	printf("\n\nstack a\n");
 	list_print(a);
+	printf("\nstack b\n");
+	list_print(b);
+
 	return (exit_success(gc));
 }

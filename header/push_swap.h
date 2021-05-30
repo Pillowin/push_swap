@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:26:49 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/25 22:47:23 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/28 12:02:46 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,12 @@
 /*
 **	exit.c
 */
-
 t_bool	exit_success(t_gc *gc);
 t_bool	exit_failure(t_gc *gc);
 
 /*
-**	init.c
+**	parse.c
 */
-
-t_bool	init_a(t_gc *gc, t_list **a, int argc, char **argv);
+t_bool	parse(t_gc *gc, t_list **a, int argc, char **argv);
 
 #endif

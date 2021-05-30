@@ -11,10 +11,10 @@ This project will make you sort data on a stack, with a limited set of instructi
 ## Todo
 
 - ~~Implement small garbage collector~~
-- Implement data structure functions
-- Implement operations
-- Handle error cases
-- Parse arguments
+- ~~Implement data structure functions~~
+- ~~Implement operations~~
+- ~~Handle error cases~~
+- ~~Parse arguments~~
 - Sort manualy for very small lists
 - Insertion sort for small lists
 - Insertion sort for bug lists

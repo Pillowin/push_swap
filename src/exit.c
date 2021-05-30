@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 22:12:07 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/25 22:19:05 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/28 12:15:19 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ t_bool	exit_success(t_gc *gc)
 t_bool	exit_failure(t_gc *gc)
 {
 	gc_clear(gc);
+	ft_putendl_fd("Error", STDERR_FILENO);
 	return (EXIT_FAILURE);
 }
