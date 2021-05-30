@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 13:54:58 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/30 21:39:26 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/30 22:25:04 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_bool	sort_very_small(t_gc *gc, t_list **a, t_list **b, t_list **output)
 		if (!sort_two(gc, a, b, output))
 			return (FALSE);
 	}
-	else
+	else if (stack_a->size == 3)
 	{
 		if (!sort_three(gc, a, b, output))
 			return (FALSE);
