@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 22:46:59 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/29 18:08:15 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/30 20:56:02 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 
 # include "libft.h"
 
-void	sa(t_list **a, t_list **b);
-void	sb(t_list **a, t_list **b);
-void	ss(t_list **a, t_list **b);
+t_bool	sa(t_gc *gc, t_list **a, t_list **b, t_list **output);
+t_bool	sb(t_gc *gc, t_list **a, t_list **b, t_list **output);
+t_bool	ss(t_gc *gc, t_list **a, t_list **b, t_list **output);
 
-void	pa(t_list **a, t_list **b);
-void	pb(t_list **a, t_list **b);
+t_bool	pa(t_gc *gc, t_list **a, t_list **b, t_list **output);
+t_bool	pb(t_gc *gc, t_list **a, t_list **b, t_list **output);
 
-void	ra(t_list **a, t_list **b);
-void	rb(t_list **a, t_list **b);
+t_bool	ra(t_gc *gc, t_list **a, t_list **b, t_list **output);
+t_bool	rb(t_gc *gc, t_list **a, t_list **b, t_list **output);
 
 
-void	rra(t_list **a, t_list **b);
-void	rrb(t_list **a, t_list **b);
-void	rrr(t_list **a, t_list **b);
+t_bool	rra(t_gc *gc, t_list **a, t_list **b, t_list **output);
+t_bool	rrb(t_gc *gc, t_list **a, t_list **b, t_list **output);
+t_bool	rrr(t_gc *gc, t_list **a, t_list **b, t_list **output);
 
 #endif
