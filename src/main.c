@@ -6,20 +6,20 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:25:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/30 22:36:48 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/31 13:54:44 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
-**	Print output list which contains instructions.
+**	Print out list which contains instructions.
 */
-static	void	print_output(t_list *output)
+static	void	print_out(t_list *out)
 {
 	t_node	*curr;
 
-	curr = output->begin;
+	curr = out->begin;
 	while (curr)
 	{
 		printf("%s\n", (char *)curr->data);
@@ -33,7 +33,7 @@ static	void	print_output(t_list *output)
 int	main(int argc, char **argv)
 {
 	t_gc	*gc;
-	t_list	*output;
+	t_list	*out;
 	t_list	*a;
 	t_list	*b;
 
@@ -49,8 +49,8 @@ int	main(int argc, char **argv)
 	b = list_new(gc);
 	if (!b)
 		return (exit_failure(gc));
-	output = list_new(gc);
-	if (!output)
+	out = list_new(gc);
+	if (!out)
 		return (exit_failure(gc));
 
 	if (!parse(gc, &a, argc, argv + 1))
@@ -61,12 +61,12 @@ int	main(int argc, char **argv)
 //	printf("\nstack b\n");
 //	list_print(b);
 
-	if (a->size <= 3)
-		sort_very_small(gc, &a, &b, &output);
+	if (a->size <= 5)
+		sort_very_small(gc, &a, &b, &out);
 
 	printf("\n--------------\n");
-	printf("output\n");
-	print_output(output);
+	printf("out\n");
+	print_out(out);
 
 	printf("\n--------------\n");
 	printf("stack a\n");

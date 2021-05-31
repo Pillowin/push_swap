@@ -17,9 +17,9 @@ This project will make you sort data on a stack, with a limited set of instructi
 - ~~Parse arguments~~
 - ~~Implement output list~~
 - ~~Sort manualy for very small lists~~
+- Refactor output list
 - Insertion sort for small lists
 - Insertion sort for bug lists
-- Refactor output list
 
 - Norm all
 - Test leaks

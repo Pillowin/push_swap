@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_two.c                                         :+:      :+:    :+:   */
+/*   find_min.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/30 17:05:36 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/31 13:43:41 by agautier         ###   ########.fr       */
+/*   Created: 2021/05/31 12:04:31 by agautier          #+#    #+#             */
+/*   Updated: 2021/05/31 13:51:16 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
-**	
+**	Return lowest element of stack.
 */
-t_bool	sort_two(t_gc *gc, t_list **a, t_list **b, t_list **out)
-{
-	t_list	*stack_a;
-
-	stack_a = *a;
-	if (is_great(stack_a->begin, stack_a->end))
-		if (!sa(gc, a, b, out))
-			return (FALSE);
-	return (TRUE);
-}
+//t_node	*find_min(t_list *list)
+//{
+//	t_node	*min;
+//	t_node	*curr;
+//
+//	min = NULL;
+//	curr = list->begin;
+//	while (curr)
+//	{
+//		if (!min || is_great(*(int *)(min->data), *(int *)(curr->data)))
+//			min = curr;
+//		curr = curr->next;
+//	}
+//	return (min);
+//}
