@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:59:07 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/30 21:01:46 by agautier         ###   ########.fr       */
+/*   Updated: 2021/05/31 12:28:58 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **	Shift down all elements of stack a by 1.
 **	The last element becomes the first one.
 */
-t_bool	rra(t_gc *gc, t_list **a, t_list **b, t_list **output)
+t_bool	rra(t_gc *gc, t_list **a, t_list **b, t_list **out)
 {
 	t_list	*list;
 	t_node	*tmp;
@@ -33,7 +33,7 @@ t_bool	rra(t_gc *gc, t_list **a, t_list **b, t_list **output)
 		tmp = tmp->next;
 	list->end = tmp;
 	list->end->next = NULL;
-	if (!list_push_back(gc, output, "rra"))
+	if (!list_push_back(gc, out, "rra"))
 		return (FALSE);
 	return (TRUE);
 }
