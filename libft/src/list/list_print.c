@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 21:29:49 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/28 12:24:46 by agautier         ###   ########.fr       */
+/*   Updated: 2021/06/02 13:40:29 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void	list_print(t_list *list)
 	if (!list || !(list->begin))
 		return ;
 	curr = list->begin;
-	printf("begin = %d\n", *(int *)list->begin->data);
-	printf("end = %d\n", *(int *)list->end->data);
-	printf("size = %lu\n", list->size);
+	fprintf(stderr, "begin = %d\n", *(int *)list->begin->data);
+	fprintf(stderr, "end = %d\n", *(int *)list->end->data);
+	fprintf(stderr, "size = %lu\n", list->size);
 	while (curr)
 	{
-		printf("%d\n", *(int *)(curr->data));
+		fprintf(stderr, "%d\n", *(int *)(curr->data));
 		curr = curr->next;
 	}
 }
