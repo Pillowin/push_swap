@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:25:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/31 13:54:44 by agautier         ###   ########.fr       */
+/*   Updated: 2021/06/02 12:06:05 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,22 @@ int	main(int argc, char **argv)
 	if (!parse(gc, &a, argc, argv + 1))
 		return (exit_failure(gc));
 
-	printf("stack a\n");
-	list_print(a);
+//	printf("stack a\n");
+//	list_print(a);
 //	printf("\nstack b\n");
 //	list_print(b);
+//	printf("\n--------------\n");
 
 	if (a->size <= 5)
 		sort_very_small(gc, &a, &b, &out);
 
-	printf("\n--------------\n");
-	printf("out\n");
+//	printf("\n--------------\n");
+//	printf("out\n");
 	print_out(out);
 
-	printf("\n--------------\n");
-	printf("stack a\n");
-	list_print(a);
+//	printf("\n--------------\n");
+//	printf("stack a\n");
+//	list_print(a);
 //	printf("\nstack b\n");
 //	list_print(b);
 
