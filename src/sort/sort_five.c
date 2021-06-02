@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 11:58:17 by agautier          #+#    #+#             */
-/*   Updated: 2021/06/02 15:09:32 by agautier         ###   ########.fr       */
+/*   Updated: 2021/06/02 17:27:59 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,10 @@ static t_bool	sort_a(t_gc *gc, t_list **a, t_list **b, t_list **out)
 */
 t_bool	sort_five(t_gc *gc, t_list **a, t_list **b, t_list **out)
 {
-	if (!pb(gc, a, b, out))
+	uint8_t	size;
+
+	size = (*a)->size == 5;
+	if (size && !pb(gc, a, b, out))
 		return (FALSE);
 	if (!pb(gc, a, b, out))
 		return (FALSE);
@@ -90,7 +93,7 @@ t_bool	sort_five(t_gc *gc, t_list **a, t_list **b, t_list **out)
 		return (FALSE);
 	if (!sort_a(gc, a, b, out))
 		return (FALSE);
-	if (!sort_a(gc, a, b, out))
+	if (size && !sort_a(gc, a, b, out))
 		return (FALSE);
 	return (TRUE);
 }
