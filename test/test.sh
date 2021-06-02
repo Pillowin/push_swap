@@ -1,5 +1,9 @@
 #! /bin/bash
 
+NC='\033[0m'	# No Color
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+
 read -p "Please entre the number of lists: " nb_lists
 if ! [[ "$nb_lists" =~ ^[0-9]+$ ]]
 then
@@ -35,10 +39,15 @@ do
 	ret=`./push_swap $arg`
 	if [ "$ret" ]
 	then
-		error=`echo "$ret" | ./checker $arg 2>&1`
+		error=`echo "$ret" | ./test/checker_Mac $arg 2>&1`
 	else
-		error=`echo -n "$ret" | ./checker $arg 2>&1`
+		error=`echo -n "$ret" | ./test/checker_Mac $arg 2>&1`
 	fi
-	ret=`echo "$ret" | wc -l | tr -d '[:space:]'`
-	echo " solved in $ret tries"
+	if [ "$error" = "KO" ]
+	then
+		echo -e "\t${RED}[KO]${NC}"
+	else
+		ret=`echo "$ret" | wc -l | tr -d '[:space:]'`
+		echo -e "\t${GREEN}[OK]${NC} in $ret operations"
+	fi
 done
