@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 12:02:01 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/30 13:45:03 by agautier         ###   ########.fr       */
+/*   Updated: 2021/06/02 19:02:08 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 **	Return TRUE if nbr is already in list, else return FALSE.
 */
-t_bool	is_duplicate(t_list *a, int nbr)
+static t_bool	is_duplicate(t_list *a, int nbr)
 {
 	t_node	*curr;
 

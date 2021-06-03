@@ -6,7 +6,7 @@
 #    By: agautier <agautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/05 12:52:43 by agautier          #+#    #+#              #
-#    Updated: 2021/05/30 17:12:44 by agautier         ###   ########.fr        #
+#    Updated: 2021/06/02 21:46:52 by agautier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,11 @@ SRC		=	$(addprefix src/,			\
 				list/node_new.c			\
 				list/list_push_front.c	\
 				list/list_push_back.c	\
+				list/node_del.c			\
 				list/list_print.c		\
 				\
 				str/ft_atoi.c			\
+				str/ft_strcmp.c			\
 				\
 				print/ft_putendl_fd.c	\
 				\

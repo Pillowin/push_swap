@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 18:26:49 by agautier          #+#    #+#             */
-/*   Updated: 2021/06/02 19:15:25 by agautier         ###   ########.fr       */
+/*   Created: 2019/09/03 20:14:47 by agautier          #+#    #+#             */
+/*   Updated: 2021/06/02 21:46:04 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+/*
+**	Reproduit à l’identique le fonctionnement de la fonction strcmp
+**	(man strcmp).
+*/
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
-# include "push_swap_parse.h"
-# include "push_swap_exit.h"
-# include "push_swap_instruction.h"
-# include "push_swap_sort.h"
-# include "push_swap_utils.h"
-# include "push_swap_opti.h"
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
 
-#endif
+	i = 0;
+	while (s1[i] != '\0' || s2[i] != '\0')
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
+}

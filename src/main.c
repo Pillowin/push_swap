@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:25:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/06/02 12:06:05 by agautier         ###   ########.fr       */
+/*   Updated: 2021/06/03 13:02:58 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ int	main(int argc, char **argv)
 
 //	printf("\n--------------\n");
 //	printf("out\n");
+
+	opti_out(gc, &out);
 	print_out(out);
 
 //	printf("\n--------------\n");
