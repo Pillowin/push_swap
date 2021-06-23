@@ -4,21 +4,21 @@ NC='\033[0m'	# No Color
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 
-read -p "Please entre the number of lists: " nb_lists
+read -p "Please enter the number of lists: " nb_lists
 if ! [[ "$nb_lists" =~ ^[0-9]+$ ]]
 then
 	echo "Sorry positive integers only"
 	exit 1
 fi
 
-read -p "Please entre the minimal number: " min
+read -p "Please enter the minimal number: " min
 if ! [[ "$nb_lists" =~ ^[0-9]+$ ]]
 then
 	echo "Sorry positive integers only"
 	exit 1
 fi
 
-read -p "Please entre the maximal number: " max
+read -p "Please enter the maximal number: " max
 if ! [[ "$nb_lists" =~ ^[0-9]+$ ]]
 then
 	echo "Sorry positive integers only"
