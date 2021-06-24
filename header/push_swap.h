@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:26:49 by agautier          #+#    #+#             */
-/*   Updated: 2021/06/02 19:15:25 by agautier         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:02:54 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include "push_swap_parse.h"
 # include "push_swap_exit.h"
 # include "push_swap_instruction.h"
-# include "push_swap_sort.h"
 # include "push_swap_utils.h"
+# include "push_swap_sort.h"
 # include "push_swap_opti.h"
 
 #endif

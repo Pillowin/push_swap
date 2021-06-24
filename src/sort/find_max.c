@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.h                                  :+:      :+:    :+:   */
+/*   find_max.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/31 12:12:47 by agautier          #+#    #+#             */
-/*   Updated: 2021/06/24 14:32:24 by agautier         ###   ########.fr       */
+/*   Created: 2021/05/31 12:04:31 by agautier          #+#    #+#             */
+/*   Updated: 2021/06/24 14:32:02 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_UTILS_H
-# define PUSH_SWAP_UTILS_H
+#include "push_swap.h"
 
-# include "libft.h"
+/*
+**	Return lowest element of stack.
+*/
+t_node	*find_max(t_list *list)
+{
+	t_node	*max;
+	t_node	*curr;
 
-t_node	*find_min(t_list *list);
-t_node	*find_max(t_list *list);
-
-#endif
+	max = NULL;
+	curr = list->begin;
+	while (curr)
+	{
+		if (!max || is_great(curr, max))
+			max = curr;
+		curr = curr->next;
+	}
+	return (max);
+}
