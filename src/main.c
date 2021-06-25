@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:25:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/06/25 16:40:30 by agautier         ###   ########.fr       */
+/*   Updated: 2021/06/25 17:07:13 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 /*
 **	Print out list which contains instructions.
 */
-//static	void	print_out(t_list *out)
-//{
-//	t_node	*curr;
-//
-//	curr = out->begin;
-//	while (curr)
-//	{
-//		printf("%s\n", (char *)curr->data);
-//		curr = curr->next;
-//	}
-//}
+static	void	print_out(t_list *out)
+{
+	t_node	*curr;
+
+	curr = out->begin;
+	while (curr)
+	{
+		printf("%s\n", (char *)curr->data);
+		curr = curr->next;
+	}
+}
 
 /*
 **	Init gc, both stacks then starts push_swap.
@@ -33,7 +33,7 @@
 int	main(int argc, char **argv)
 {
 	t_gc	*gc;
-//	t_list	*out;
+	t_list	*out;
 	t_list	*a;
 	t_list	*b;
 
@@ -53,30 +53,25 @@ int	main(int argc, char **argv)
 	int nb2 = 5;
 	list_push_back(gc, &b, &nb);
 	list_push_back(gc, &b, &nb2);
-//	out = list_new(gc);
-//	if (!out)
-//		return (exit_failure(gc));
+	out = list_new(gc);
+	if (!out)
+		return (exit_failure(gc));
 
 	if (!parse(gc, &a, argc, argv + 1))
 		return (exit_failure(gc));
 
-//	printf("stack a\n");
-	list_print(a);
-	printf("merge\n\n");
-	list_merge(&a, b);
-	list_print(a);
 //	printf("\nstack b\n");
 //	list_print(b);
 //	printf("\n--------------\n");
 
-//	if (a->size <= 5)
-//		sort_very_small(gc, &a, &b, &out);
+	if (a->size <= 5)
+		sort_very_small(gc, &a, &b, &out);
 
 //	printf("\n--------------\n");
 //	printf("out\n");
 
-//	opti_out(gc, &out);
-//	print_out(out);
+	opti_out(gc, &out);
+	print_out(out);
 
 //	printf("\n--------------\n");
 //	printf("stack a\n");

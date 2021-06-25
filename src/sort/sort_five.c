@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 11:58:17 by agautier          #+#    #+#             */
-/*   Updated: 2021/06/25 16:08:07 by agautier         ###   ########.fr       */
+/*   Updated: 2021/06/25 17:10:32 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "push_swap.h"
 
 /*
-** Return TRUE if list is sorted, else return FALSE.
+**	Return TRUE if list is sorted, else return FALSE.
 */
 t_bool	is_sorted(t_list *list)
 {
@@ -31,7 +31,7 @@ t_bool	is_sorted(t_list *list)
 }
 
 /*
-** Returns fastest rotation to sort list.
+**	Returns fastest rotation to sort list.
 */
 char	*find_last_rotate(t_list *out)
 {
@@ -56,7 +56,6 @@ t_op	get_fastest_op(t_list *list, t_node *elem)
 {
 	uint16_t	pos;
 	t_node		*curr;
-//	char		*op;
 
 	curr = list->begin;
 	pos = 0;
@@ -69,14 +68,8 @@ t_op	get_fastest_op(t_list *list, t_node *elem)
 		pos = list->size - pos;
 	if (pos > list->size / 2)
 		return (rra);
-//	if (pos < list->size / 2)
-//		return (ra);
-//	op = find_last_rotate(out);
-//	if (op && !ft_strcmp(op, "ra"))
-//		return (rra);
 	return (ra);
 }
-
 
 /*
 **
@@ -98,29 +91,14 @@ static t_bool	sort_a(t_gc *gc, t_list **a, t_list **b, t_list **out)
 			return (FALSE);
 	if (!pa(gc, a, b, out))
 		return (FALSE);
-//	op = get_fastest_op_post_pa(stack_a, *out);
 	if (op == ra)
 		op = rra;
 	else
 		op = ra;
 	while (!is_sorted(stack_a))
-	{
 		if (!op(gc, a, b, out))
 			return (FALSE);
-	}
 	return (TRUE);
-}
-
-static	void	print_out(t_list *out)
-{
-	t_node	*curr;
-
-	curr = out->begin;
-	while (curr)
-	{
-		printf("%s\n", (char *)curr->data);
-		curr = curr->next;
-	}
 }
 
 /*
@@ -160,7 +138,7 @@ t_node	*del_nexts_op(t_gc *gc, t_list **out, t_node *prev, uint8_t nb)
 }
 
 /*
-**	
+**	Opti output of five list sort.
 */
 void	opti_sort_five(t_gc *gc, t_list *a, t_list **out)
 {
@@ -181,24 +159,15 @@ void	opti_sort_five(t_gc *gc, t_list *a, t_list **out)
 		if (ft_strcmp(curr->data, "pb"))
 			size += 1;
 		seq = get_sequence(curr);
-//		fprintf(stderr, "found seq of %d and size of %d\n", seq, size);
 		if (seq == size)
 			curr = del_nexts_op(gc, out, prev, seq);
 		else if (seq > (size + size % 2) / 2 || (size == 3 && seq == 2))
 		{
-//			fprintf(stderr, "coucou %d \n", seq - 1);
 			curr = del_nexts_op(gc, out, curr, seq - 1);
-//			fprintf(stderr, "curr  = %s\n", (char *)curr->data);
 			if (!ft_strcmp(curr->data, "ra"))
-			{
 				curr->data = "rra";
-//				fprintf(stderr, "AAAAAAAH\n");
-			}
 			else if (!ft_strcmp(curr->data, "rra"))
-			{
 				curr->data = "ra";
-//				fprintf(stderr, "aaaaaaah\n");
-			}
 		}
 		prev = curr;
 		curr = curr->next;
@@ -215,37 +184,21 @@ t_bool	sort_five(t_gc *gc, t_list **a, t_list **b, t_list **out)
 	uint8_t	size;
 	t_list	*out_tmp;
 
-	(void)out;
 	out_tmp = list_new(gc);
 	if (!out_tmp)
 		return (exit_failure(gc));
 	size = (*a)->size == 5;
-	//fprintf(stderr, "-------1-------\n");
-	//list_print(*a);
 	if (size && !pb(gc, a, b, &out_tmp))
 		return (FALSE);
-	//fprintf(stderr, "-------2-------\n");
-	//list_print(*a);
 	if (!pb(gc, a, b, &out_tmp))
 		return (FALSE);
-	//fprintf(stderr, "-------3-------\n");
-	//list_print(*a);
 	if (!sort_three(gc, a, b, &out_tmp))
 		return (FALSE);
-	//fprintf(stderr, "-------4-------\n");
-	//list_print(*a);
 	if (!sort_a(gc, a, b, &out_tmp))
 		return (FALSE);
-	//fprintf(stderr, "-------5-------\n");
-	//list_print(*a);
 	if (size && !sort_a(gc, a, b, &out_tmp))
 		return (FALSE);
-//	print_out(out_tmp);
-//	printf("===========\n");
 	opti_sort_five(gc, *a, &out_tmp);
-	opti_out(gc, &out_tmp);
-	print_out(out_tmp);
-	//fprintf(stderr, "-------6-------\n");
-	//list_print(*a);
+	list_merge(out, out_tmp);
 	return (TRUE);
 }

@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 16:13:21 by agautier          #+#    #+#             */
-/*   Updated: 2021/06/25 16:39:51 by agautier         ###   ########.fr       */
+/*   Updated: 2021/06/25 17:09:39 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	list_merge(t_list **alist1, t_list *list2)
 	list1 = *alist1;
 	if (list1->size == 0)
 	{
-		list1 = list2;
+		*alist1 = list2;
 		return ;
 	}
 	list1->size += list2->size;
