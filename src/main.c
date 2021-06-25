@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:25:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/06/24 16:21:03 by agautier         ###   ########.fr       */
+/*   Updated: 2021/06/24 20:40:40 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 /*
 **	Print out list which contains instructions.
 */
-static	void	print_out(t_list *out)
-{
-	t_node	*curr;
-
-	curr = out->begin;
-	while (curr)
-	{
-		printf("%s\n", (char *)curr->data);
-		curr = curr->next;
-	}
-}
+//static	void	print_out(t_list *out)
+//{
+//	t_node	*curr;
+//
+//	curr = out->begin;
+//	while (curr)
+//	{
+//		printf("%s\n", (char *)curr->data);
+//		curr = curr->next;
+//	}
+//}
 
 /*
 **	Init gc, both stacks then starts push_swap.
@@ -68,8 +68,8 @@ int	main(int argc, char **argv)
 //	printf("\n--------------\n");
 //	printf("out\n");
 
-	opti_out(gc, &out);
-	print_out(out);
+//	opti_out(gc, &out);
+//	print_out(out);
 
 //	printf("\n--------------\n");
 //	printf("stack a\n");
