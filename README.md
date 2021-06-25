@@ -18,7 +18,7 @@ This project will make you sort data on a stack, with a limited set of instructi
 - ~~Implement output list~~
 - ~~Sort manualy for very small lists~~
 - ~~Refactor output list of 5 numbers list~~
-- Merge list function
+- ~~Merge list function~~
 - Refactor output list
 - Insertion sort for small lists
 - Insertion sort for big lists

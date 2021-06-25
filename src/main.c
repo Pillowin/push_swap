@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:25:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/06/24 20:40:40 by agautier         ###   ########.fr       */
+/*   Updated: 2021/06/25 16:40:30 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 int	main(int argc, char **argv)
 {
 	t_gc	*gc;
-	t_list	*out;
+//	t_list	*out;
 	t_list	*a;
 	t_list	*b;
 
@@ -49,21 +49,28 @@ int	main(int argc, char **argv)
 	b = list_new(gc);
 	if (!b)
 		return (exit_failure(gc));
-	out = list_new(gc);
-	if (!out)
-		return (exit_failure(gc));
+	int nb = 4;
+	int nb2 = 5;
+	list_push_back(gc, &b, &nb);
+	list_push_back(gc, &b, &nb2);
+//	out = list_new(gc);
+//	if (!out)
+//		return (exit_failure(gc));
 
 	if (!parse(gc, &a, argc, argv + 1))
 		return (exit_failure(gc));
 
 //	printf("stack a\n");
-//	list_print(a);
+	list_print(a);
+	printf("merge\n\n");
+	list_merge(&a, b);
+	list_print(a);
 //	printf("\nstack b\n");
 //	list_print(b);
 //	printf("\n--------------\n");
 
-	if (a->size <= 5)
-		sort_very_small(gc, &a, &b, &out);
+//	if (a->size <= 5)
+//		sort_very_small(gc, &a, &b, &out);
 
 //	printf("\n--------------\n");
 //	printf("out\n");

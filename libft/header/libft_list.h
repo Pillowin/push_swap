@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 20:01:36 by agautier          #+#    #+#             */
-/*   Updated: 2021/06/03 14:57:26 by agautier         ###   ########.fr       */
+/*   Updated: 2021/06/25 16:30:00 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_node	*node_new(t_gc *gc, void *data);
 
 t_node	*list_push_back(t_gc *gc, t_list **alist, void *data);
 t_node	*list_push_front(t_gc *gc, t_list **alist, void *data);
+void	list_merge(t_list **alist1, t_list *list2);
 
 t_node	*node_del(t_gc *gc, t_list **alist, t_node *prev);
 
