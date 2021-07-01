@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:14:37 by agautier          #+#    #+#             */
-/*   Updated: 2021/06/03 15:02:12 by agautier         ###   ########.fr       */
+/*   Updated: 2021/07/01 18:12:02 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ t_bool	del_duplicates(t_gc *gc, t_list **alist, t_node *prev, t_node *curr);
 */
 t_bool	conv_swap(t_gc *gc, t_list **alist, t_node *prev, t_node *curr);
 t_bool	conv_rotate(t_gc *gc, t_list **alist, t_node *prev, t_node *curr);
+
+void	opti_sort_five(t_gc *gc, t_list *a, t_list **out);
 
 #endif

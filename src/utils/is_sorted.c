@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.h                                  :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/31 12:12:47 by agautier          #+#    #+#             */
-/*   Updated: 2021/07/01 18:14:12 by agautier         ###   ########.fr       */
+/*   Created: 2021/07/01 18:06:48 by agautier          #+#    #+#             */
+/*   Updated: 2021/07/01 18:06:57 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_UTILS_H
-# define PUSH_SWAP_UTILS_H
+#include "push_swap.h"
 
-# include "libft.h"
+/*
+**	Return TRUE if list is sorted, else return FALSE.
+*/
+t_bool	is_sorted(t_list *list)
+{
+	t_node	*curr;
 
-t_node	*find_min(t_list *list);
-t_node	*find_max(t_list *list);
-t_bool	is_sorted(t_list *list);
-uint8_t	get_sequence(t_node *node);
-
-#endif
+	curr = list->begin;
+	while (curr && curr->next)
+	{
+		if (is_great(curr, curr->next))
+			return (FALSE);
+		curr = curr->next;
+	}
+	return (TRUE);
+}
