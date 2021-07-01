@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:25:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/06/25 17:07:13 by agautier         ###   ########.fr       */
+/*   Updated: 2021/07/01 12:36:57 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,6 @@ int	main(int argc, char **argv)
 	b = list_new(gc);
 	if (!b)
 		return (exit_failure(gc));
-	int nb = 4;
-	int nb2 = 5;
-	list_push_back(gc, &b, &nb);
-	list_push_back(gc, &b, &nb2);
 	out = list_new(gc);
 	if (!out)
 		return (exit_failure(gc));

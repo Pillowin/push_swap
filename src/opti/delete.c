@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:33:52 by agautier          #+#    #+#             */
-/*   Updated: 2021/06/03 14:59:19 by agautier         ###   ########.fr       */
+/*   Updated: 2021/06/27 21:19:00 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_bool	del_swap(t_gc *gc, t_list **alist, t_node *prev, t_node *curr)
 	curr_data = (char *)curr->data;
 	next_data = (char *)next->data;
 	if ((!ft_strcmp(curr_data, "sa") && !ft_strcmp(next_data, "sa"))
-			|| (!ft_strcmp(curr_data, "sb") && !ft_strcmp(next_data, "sb")))
+		|| (!ft_strcmp(curr_data, "sb") && !ft_strcmp(next_data, "sb")))
 	{
 		prev = node_del(gc, alist, prev);
 		prev = node_del(gc, alist, prev);
@@ -51,7 +51,7 @@ t_bool	del_push(t_gc *gc, t_list **alist, t_node *prev, t_node *curr)
 	curr_data = (char *)curr->data;
 	next_data = (char *)next->data;
 	if ((!ft_strcmp(curr_data, "pa") && !ft_strcmp(next_data, "pb"))
-			|| (!ft_strcmp(curr_data, "pb") && !ft_strcmp(next_data, "pa")))
+		|| (!ft_strcmp(curr_data, "pb") && !ft_strcmp(next_data, "pa")))
 	{
 		prev = node_del(gc, alist, prev);
 		prev = node_del(gc, alist, prev);
@@ -101,8 +101,8 @@ t_bool	del_duplicates(t_gc *gc, t_list **alist, t_node *prev, t_node *curr)
 	curr_data = (char *)curr->data;
 	next_data = (char *)next->data;
 	if ((!ft_strcmp(curr_data, "ss") && !ft_strcmp(next_data, "ss"))
-			|| (!ft_strcmp(curr_data, "rr") && !ft_strcmp(next_data, "rrr"))
-			|| (!ft_strcmp(curr_data, "rrr") && !ft_strcmp(next_data, "rr")))
+		|| (!ft_strcmp(curr_data, "rr") && !ft_strcmp(next_data, "rrr"))
+		|| (!ft_strcmp(curr_data, "rrr") && !ft_strcmp(next_data, "rr")))
 	{
 		prev = node_del(gc, alist, prev);
 		prev = node_del(gc, alist, prev);

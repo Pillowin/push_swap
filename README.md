@@ -5,7 +5,6 @@ This project will make you sort data on a stack, with a limited set of instructi
 
 ## Fixes
 
-- Add third list in main for output
 - Handle errors in `sa` `sb` and `ss`
 
 ## Todo
