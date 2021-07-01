@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 12:02:01 by agautier          #+#    #+#             */
-/*   Updated: 2021/06/02 19:02:08 by agautier         ###   ########.fr       */
+/*   Updated: 2021/07/01 16:57:10 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,7 @@ t_bool	parse(t_gc *gc, t_list **a, int argc, char **argv)
 			return (FALSE);
 		i++;
 	}
+	if (!update_set(gc, a))
+		return (FALSE);
 	return (TRUE);
 }

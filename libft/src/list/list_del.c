@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_parse.h                                  :+:      :+:    :+:   */
+/*   list_del.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/30 14:08:50 by agautier          #+#    #+#             */
-/*   Updated: 2021/07/01 16:46:03 by agautier         ###   ########.fr       */
+/*   Created: 2021/07/01 17:05:02 by agautier          #+#    #+#             */
+/*   Updated: 2021/07/01 17:59:05 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_PARSE_H
-# define PUSH_SWAP_PARSE_H
+#include "libft.h"
 
-# include "libft.h"
+/*
+**	Free whole list.
+*/
+void	list_del(t_gc *gc, t_list **alist)
+{
+	t_list	*list;
+	t_node	*curr;
+	void	*tmp;
 
-t_bool	update_set(t_gc *gc, t_list **a);
-t_bool	parse(t_gc *gc, t_list **a, int argc, char **argv);
-
-#endif
+	if (!alist || !*alist)
+		return ;
+	list = *alist;
+	curr = list->begin;
+	while (curr)
+	{
+		gc_free(gc, (void **)&(curr->data));
+		tmp = curr;
+		curr = curr->next;
+		gc_free(gc, (void **)&(tmp));
+	}
+	gc_free(gc, (void **)&alist);
+}
