@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 12:06:35 by agautier          #+#    #+#             */
-/*   Updated: 2021/07/09 15:57:32 by agautier         ###   ########.fr       */
+/*   Updated: 2021/07/09 16:37:07 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,12 @@ static t_bool	empty_b(t_gc *gc, t_list **a, t_list **b, t_list **out)
 */
 t_bool	quick_sort(t_gc *gc, t_list **a, t_list **b, t_list **out)
 {
+
 	if (!pb_small(gc, a, b, out))
 		return (FALSE);
 	if (!empty_b(gc, a, b, out))
+		return (FALSE);
+	if (!prep_insertion_sort(gc, a, b, out))
 		return (FALSE);
 	return (TRUE);
 }
