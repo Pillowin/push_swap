@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 12:57:10 by agautier          #+#    #+#             */
-/*   Updated: 2021/07/01 18:04:37 by agautier         ###   ########.fr       */
+/*   Updated: 2021/07/09 12:56:39 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ static uint8_t	count_bigger(t_list *list, int nbr)
 */
 t_bool	update_set(t_gc *gc, t_list **a)
 {
-	unsigned int	*nbr;
-	t_list			*new;
-	t_list			*stack_a;
-	t_node			*curr;
+	uint32_t	*nbr;
+	t_list		*new;
+	t_list		*stack_a;
+	t_node		*curr;
 
 	stack_a = *a;
 	new = list_new(gc);
@@ -49,7 +49,7 @@ t_bool	update_set(t_gc *gc, t_list **a)
 	curr = stack_a->begin;
 	while (curr)
 	{
-		nbr = (unsigned int *)gc_calloc(gc, 1, sizeof(*nbr));
+		nbr = (uint32_t *)gc_calloc(gc, 1, sizeof(*nbr));
 		if (!nbr)
 			return (FALSE);
 		*nbr = stack_a->size - count_bigger(stack_a, *(int *)curr->data) - 1;

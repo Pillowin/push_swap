@@ -20,6 +20,7 @@ This project will make you sort data on a stack, with a limited set of instructi
 - ~~Merge list function~~
 - ~~Refactor output list~~
 - ~~Change set to only positive numbers with interval of 1~~
+- Push everything less than median to B
 - Insertion sort for small lists
 - Insertion sort for big lists
 

@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.h                                  :+:      :+:    :+:   */
+/*   get_median.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/31 12:12:47 by agautier          #+#    #+#             */
-/*   Updated: 2021/07/09 12:56:00 by agautier         ###   ########.fr       */
+/*   Created: 2021/07/09 12:13:44 by agautier          #+#    #+#             */
+/*   Updated: 2021/07/09 13:00:34 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_UTILS_H
-# define PUSH_SWAP_UTILS_H
+#include "push_swap.h"
 
-# include "libft.h"
-
-t_node		*find_min(t_list *list);
-uint32_t	get_median(t_list *list);
-
-#endif
+/*
+**	Return median of the current list.
+*/
+uint32_t	get_median(t_list *list)
+{
+	return (list->size / 2);
+}
