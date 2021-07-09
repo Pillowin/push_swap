@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 12:13:44 by agautier          #+#    #+#             */
-/*   Updated: 2021/07/09 13:00:34 by agautier         ###   ########.fr       */
+/*   Updated: 2021/07/09 15:56:26 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@
 */
 uint32_t	get_median(t_list *list)
 {
-	return (list->size / 2);
+	return ((list->size  + 1) / 2);
 }

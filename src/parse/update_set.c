@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 12:57:10 by agautier          #+#    #+#             */
-/*   Updated: 2021/07/09 12:56:39 by agautier         ###   ########.fr       */
+/*   Updated: 2021/07/09 15:49:47 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_bool	update_set(t_gc *gc, t_list **a)
 		nbr = (uint32_t *)gc_calloc(gc, 1, sizeof(*nbr));
 		if (!nbr)
 			return (FALSE);
-		*nbr = stack_a->size - count_bigger(stack_a, *(int *)curr->data) - 1;
+		*nbr = stack_a->size - count_bigger(stack_a, *(int *)curr->data);
 		if (!list_push_back(gc, &new, nbr))
 			return (FALSE);
 		curr = curr->next;
