@@ -21,7 +21,18 @@ This project will make you sort data on a stack, with a limited set of instructi
 - ~~Refactor output list~~
 - ~~Change set to only positive numbers with interval of 1~~
 - ~~Quick sort~~
+
+- Find pivot intervall in order to know if we need to apply insertion or create new pivots
+
+- Create new pivot for big chunks
+	- move func to create pivots out of quick_sort.c
+	- intervall / 2
+	- restart same algo to create pivots
+	- need to : update pivots functions and find magic values
+
 - Insertion sort
+	- check if value is in A or B
+	- find best logic to retrieve value
 
 - Norm all
 - Test leaks

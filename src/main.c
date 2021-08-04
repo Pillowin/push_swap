@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:25:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/07/09 17:22:28 by agautier         ###   ########.fr       */
+/*   Updated: 2021/07/23 15:38:32 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 		return (exit_failure(gc));
 
 //	printf("\nstack b\n");
-	list_print(a);
+//	list_print(a);
 //	printf("\n--------------\n");
 
 	if (a->size <= 5)
@@ -71,9 +71,9 @@ int	main(int argc, char **argv)
 	opti_out(gc, &out);
 	print_out(out);
 
-	printf("\n--------------\n");
-	printf("stack a\n");
-	list_print(a);
+//	printf("\n--------------\n");
+//	printf("stack a\n");
+//	list_print(a);
 //	printf("\nstack b\n");
 //	list_print(b);
 

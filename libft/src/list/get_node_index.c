@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_median.c                                       :+:      :+:    :+:   */
+/*   get_node_index.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/09 12:13:44 by agautier          #+#    #+#             */
-/*   Updated: 2021/07/18 14:20:30 by agautier         ###   ########.fr       */
+/*   Created: 2021/08/04 14:23:41 by agautier          #+#    #+#             */
+/*   Updated: 2021/08/04 14:25:58 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
 /*
-**	Return median of the current list.
+**	Return index of node in list.
 */
-uint32_t	get_median(t_list *list)
+uint8_t	get_node_index(t_list *list, t_node *node)
 {
-	return ((list->size + 1) >> 1);
+	t_node	*curr;
+	uint8_t	index;
+
+	curr = list->begin;
+	index = 0;
+	while (curr && curr != node)
+	{
+		index += 1;
+		curr = curr->next;
+	}
+	return (index);
 }

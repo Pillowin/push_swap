@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 12:06:35 by agautier          #+#    #+#             */
-/*   Updated: 2021/07/09 16:37:07 by agautier         ###   ########.fr       */
+/*   Updated: 2021/08/04 14:32:32 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ static t_bool	pb_small(t_gc *gc, t_list **a, t_list **b, t_list **out)
 		curr = stack_a->begin;
 		i -= 1;
 	}
-	fprintf(stderr, "stack_a\n");
-	list_print(stack_a);
-	fprintf(stderr, "stack_b\n");
-	list_print(*b);
+//	fprintf(stderr, "stack_a\n");
+//	list_print(stack_a);
+//	fprintf(stderr, "stack_b\n");
+//	list_print(*b);
 	return (TRUE);
 }
 
@@ -64,10 +64,10 @@ static t_bool	empty_b(t_gc *gc, t_list **a, t_list **b, t_list **out)
 	stack_b = *b;
 	while (stack_b->size)
 	{
-		fprintf(stderr, "===========\n\n");
+//		fprintf(stderr, "===========\n\n");
 		// pa for big in b
 		median = get_median(stack_b);
-		fprintf(stderr, "median = %u\n", median);
+//		fprintf(stderr, "median = %u\n", median);
 		curr = stack_b->begin;
 		i = stack_b->size;
 		while (curr && i)
@@ -86,10 +86,10 @@ static t_bool	empty_b(t_gc *gc, t_list **a, t_list **b, t_list **out)
 		}
 		if (!rra(gc, a, b, out))
 			return (FALSE);
-		fprintf(stderr, "stack_a\n");
-		list_print(stack_a);
-		fprintf(stderr, "stack_b\n");
-		list_print(*b);
+//		fprintf(stderr, "stack_a\n");
+//		list_print(stack_a);
+//		fprintf(stderr, "stack_b\n");
+//		list_print(*b);
 	}
 	return (TRUE);
 }

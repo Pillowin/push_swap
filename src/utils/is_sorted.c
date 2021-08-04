@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_median.c                                       :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/09 12:13:44 by agautier          #+#    #+#             */
-/*   Updated: 2021/07/18 14:20:30 by agautier         ###   ########.fr       */
+/*   Created: 2021/07/22 19:30:16 by agautier          #+#    #+#             */
+/*   Updated: 2021/07/23 15:30:29 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
-**	Return median of the current list.
+**	Return TRUE if list is sorted, else return FALSE.
 */
-uint32_t	get_median(t_list *list)
+t_bool	is_sorted(t_list *list)
 {
-	return ((list->size + 1) >> 1);
+	t_node	*curr;
+
+	curr = list->begin;
+	while (curr && curr->next)
+	{
+		if (is_great(curr, curr->next))
+			return (FALSE);
+		curr = curr->next;
+	}
+	return (TRUE);
 }
