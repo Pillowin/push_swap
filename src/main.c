@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:25:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/07/23 15:38:32 by agautier         ###   ########.fr       */
+/*   Updated: 2021/08/09 17:49:53 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 	t_list	*a;
 	t_list	*b;
 
-	if (argc <= 2)
+	if (argc < 2)
 		return (EXIT_SUCCESS);
 
 	gc = gc_new(&((t_gc){NULL, 0, 0}));
@@ -60,7 +60,9 @@ int	main(int argc, char **argv)
 //	list_print(a);
 //	printf("\n--------------\n");
 
-	if (a->size <= 5)
+	if (a->size <= 1)
+		return (exit_success(gc));
+	else if (a->size <= 5)
 		sort_very_small(gc, &a, &b, &out);
 	else
 		quick_sort(gc, &a, &b, &out);
