@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_at.c                                          :+:      :+:    :+:   */
+/*   node_find.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 20:04:35 by agautier          #+#    #+#             */
-/*   Updated: 2021/08/11 16:26:33 by agautier         ###   ########.fr       */
+/*   Created: 2021/08/11 17:20:41 by agautier          #+#    #+#             */
+/*   Updated: 2021/08/11 17:22:24 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-**	Return node at index position.
+**	Find a node from his data.
 */
-t_node	*list_at(t_list *list, uint8_t index)
+t_node	*node_find(t_list *list, uint32_t data)
 {
 	t_node	*curr;
-	uint8_t	i;
 
 	curr = list->begin;
-	i = 1;
-	while (curr && i < index)
+	while (curr)
 	{
+		if (*(uint32_t *)curr->data == data)
+			break ;
 		curr = curr->next;
-		i += 1;
 	}
 	return (curr);
 }
