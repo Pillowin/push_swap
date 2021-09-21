@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_pivot.c                                         :+:      :+:    :+:   */
+/*   is_in_a.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/12 22:43:25 by agautier          #+#    #+#             */
-/*   Updated: 2021/08/09 17:37:22 by agautier         ###   ########.fr       */
+/*   Created: 2021/09/14 12:19:10 by agautier          #+#    #+#             */
+/*   Updated: 2021/09/14 12:36:47 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
-**	Return TRUE if nbr is a pivot else returns FALSE.
-**	TODO: add rule to subdivision pivots.
+**	Return TRUE if value is in stack A, FALSE otherwise.
 */
-t_bool	is_pivot(t_list *list, uint32_t nbr)
+t_bool	is_in_a(t_ps *ps, uint32_t value)
 {
-	uint32_t	pivot;
+	t_node	*curr;
 
-	pivot = list->size >> 1;
-	while (pivot)
+	curr = ps->a->begin;
+	while (curr)
 	{
-		if (nbr == pivot)
+		if (*(uint32_t *)curr->data == value)
 			return (TRUE);
-		pivot = pivot >> 1;
+		curr = curr->next;
 	}
 	return (FALSE);
 }
