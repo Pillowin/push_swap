@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 18:26:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/07/09 16:37:15 by agautier         ###   ########.fr       */
+/*   Updated: 2021/08/23 19:13:01 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 
 # include "libft.h"
 
-t_bool	sort_very_small(t_gc *gc, t_list **a, t_list **b, t_list **out);
+typedef struct s_ps t_ps;
 
-t_bool	sort_two(t_gc *gc, t_list **a, t_list **b, t_list **out);
-t_bool	sort_three(t_gc *gc, t_list **a, t_list **b, t_list **out);
-t_bool	sort_five(t_gc *gc, t_list **a, t_list **b, t_list **out);
+t_bool	sort_very_small(t_ps *ps);
 
-t_bool	quick_sort(t_gc *gc, t_list **a, t_list **b, t_list **out);
+t_bool	sort_two(t_ps *ps);
+t_bool	sort_three(t_ps *ps);
+t_bool	sort_five(t_ps *ps);
 
-t_bool	prep_insertion_sort(t_gc *gc, t_list **a, t_list **b, t_list **out);
+t_bool	quick_sort(t_ps *ps);
+
+t_bool	prep_insertion_sort(t_ps *ps);
 
 #endif
