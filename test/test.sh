@@ -31,6 +31,8 @@ then
 	exit 1
 fi
 
+av=0
+ok=0
 for i in `seq 1 $nb_lists`
 do
 	arg=`shuf -i $min-$max`
@@ -49,5 +51,9 @@ do
 	else
 		ret=`echo "$ret" | wc -l | tr -d '[:space:]'`
 		echo -e "\t${GREEN}[OK]${NC} in $ret operations"
+		av=$(($av + $ret))
+		ok=$(($ok + 1))
 	fi
 done
+
+echo "Average: $(($av/$ok)) operations"
