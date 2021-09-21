@@ -22,17 +22,42 @@ This project will make you sort data on a stack, with a limited set of instructi
 - ~~Change set to only positive numbers with interval of 1~~
 - ~~Quick sort~~
 
-- Find pivot intervall in order to know if we need to apply insertion or create new pivots
+- ~~Find pivot intervall in order to know if we need to apply insertion or create new pivots~~
 
 - Create new pivot for big chunks
-	- move func to create pivots out of quick_sort.c
-	- intervall / 2
+	- ~~update pivots functions~~
+	- ~~copy func to create pivots out of quick_sort.c~~
 	- restart same algo to create pivots
-	- need to : update pivots functions and find magic values
+	=> ~~need to create struct for gc a b out ? in order to pass args~~
+	- intervall / 2
+	- find magic values
+
+- Creation de pivot
+	- ~~push pivot at end of B~~
+	- ~~push smaller in B~~
+	- ~~push bigger at end of A~~
+
+	- ~~push end of A at the begining of A~~
+	- ~~push pivot (end of B) at begining of A~~
+
+	- ~~new pivot in B~~
+	- ~~push bigger in A~~
+	- ~~push smaller at end of B~~
+	- ~~push pivot at end of A~~
+
+	- ~~push pivot at begining of A~~
+	- push smaller (in B) at begining of A => or Insertion sort
 
 - Insertion sort
 	- check if value is in A or B
-	- find best logic to retrieve value
+		- A
+		- while not interesting_value PB
+		- RA
+
+		- B
+		- find optimal RB or RRB
+		- PA
+		- RA
 
 - Norm all
 - Test leaks
