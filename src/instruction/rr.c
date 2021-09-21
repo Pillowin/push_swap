@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:58:27 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/31 12:28:44 by agautier         ###   ########.fr       */
+/*   Updated: 2021/08/23 19:17:45 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 /*
 **	ra and rb at the same time.
 */
-t_bool	rr(t_gc *gc, t_list **a, t_list **b, t_list **out)
+t_bool	rr(t_ps *ps)
 {
-	if (!ra(gc, a, b, out))
+	if (!ra(ps))
 		return (FALSE);
-	if (!rb(gc, a, b, out))
+	if (!rb(ps))
 		return (FALSE);
-	if (!list_push_back(gc, out, "rr"))
+	if (!list_push_back(ps->gc, &ps->out, "rr"))
 		return (FALSE);
 	return (TRUE);
 }

@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:43:34 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/31 12:29:37 by agautier         ###   ########.fr       */
+/*   Updated: 2021/08/23 20:22:03 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 /*
 **	sa and sb at the same time.
 */
-t_bool	ss(t_gc *gc, t_list **a, t_list **b, t_list **out)
+t_bool	ss(t_ps *ps)
 {
-	if (!sa(gc, a, b, out))
+	if (!sa(ps))
 		return (FALSE);
-	if (!sb(gc, a, b, out))
+	if (!sb(ps))
 		return (FALSE);
-	if (!list_push_back(gc, out, "ss"))
+	if (!list_push_back(ps->gc, &ps->out, "ss"))
 		return (FALSE);
 	return (TRUE);
 }

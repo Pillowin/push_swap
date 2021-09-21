@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:39:50 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/31 12:29:22 by agautier         ###   ########.fr       */
+/*   Updated: 2021/08/21 20:15:00 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,18 @@
 **	Swap the first 2 elements at the top of stack a.
 **	Do nothing if there is only one or no elements.
 */
-t_bool	sa(t_gc *gc, t_list **a, t_list **b, t_list **out)
+t_bool	sa(t_ps *ps)
 {
 	t_list	*list;
 	void	*tmp;
 
-	(void)b;
-	list = *a;
+	list = ps->a;
 	if (list->size <= 1)
 		return (TRUE);
 	tmp = list->begin->data;
 	list->begin->data = list->begin->next->data;
 	list->begin->next->data = tmp;
-	if (!list_push_back(gc, out, "sa"))
+	if (!list_push_back(ps->gc, &ps->out, "sa"))
 		return (FALSE);
 	return (TRUE);
 }
