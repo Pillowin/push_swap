@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:25:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/08/09 17:49:53 by agautier         ###   ########.fr       */
+/*   Updated: 2021/09/17 14:36:08 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,69 +15,65 @@
 /*
 **	Print out list which contains instructions.
 */
-static void	print_out(t_list *out)
-{
-	t_node	*curr;
-
-	curr = out->begin;
-	while (curr)
-	{
-		printf("%s\n", (char *)curr->data);
-		curr = curr->next;
-	}
-}
+//static void	print_out(t_list *out)
+//{
+//	t_node	*curr;
+//
+//	curr = out->begin;
+//	while (curr)
+//	{
+//		printf("%s\n", (char *)curr->data);
+//		curr = curr->next;
+//	}
+//}
 
 /*
 **	Init gc, both stacks then starts push_swap.
 */
 int	main(int argc, char **argv)
 {
-	t_gc	*gc;
-	t_list	*out;
-	t_list	*a;
-	t_list	*b;
+	t_ps	ps;
 
+	ps = (t_ps){NULL, NULL, NULL, NULL};
 	if (argc < 2)
 		return (EXIT_SUCCESS);
 
-	gc = gc_new(&((t_gc){NULL, 0, 0}));
-	if (!gc)
+	ps.gc = gc_new(&((t_gc){NULL, 0, 0}));
+	if (!ps.gc)
 		return (EXIT_FAILURE);
-	a = list_new(gc);
-	if (!a)
-		return (exit_failure(gc));
-	b = list_new(gc);
-	if (!b)
-		return (exit_failure(gc));
-	out = list_new(gc);
-	if (!out)
-		return (exit_failure(gc));
+	ps.a = list_new(ps.gc);
+	if (!ps.a)
+		return (exit_failure(ps.gc));
+	ps.b = list_new(ps.gc);
+	if (!ps.b)
+		return (exit_failure(ps.gc));
+	ps.out = list_new(ps.gc);
+	if (!ps.out)
+		return (exit_failure(ps.gc));
 
-	if (!parse(gc, &a, argc, argv + 1))
-		return (exit_failure(gc));
+	if (!parse(ps.gc, &(ps.a), argc, argv + 1))	// TODO: change params
+		return (exit_failure(ps.gc));
 
-//	printf("\nstack b\n");
-//	list_print(a);
-//	printf("\n--------------\n");
+	list_print(ps.a);
 
-	if (a->size <= 1)
-		return (exit_success(gc));
-	else if (a->size <= 5)
-		sort_very_small(gc, &a, &b, &out);
+	if (ps.a->size <= 1)
+		return (exit_success(ps.gc));
+	else if (ps.a->size <= 5)
+		sort_very_small(&ps);
 	else
-		quick_sort(gc, &a, &b, &out);
+		quick_sort(&ps);
 
-//	printf("\n--------------\n");
-//	printf("out\n");
+	fprintf(stderr, "--------end of main------\n");
+	fprintf(stderr, "stack_a\n");
+	fprintf(stderr, "\nstack_b\n");
+	list_print(ps.b);
 
-	opti_out(gc, &out);
-	print_out(out);
+	opti_out(ps.gc, &ps.out);
+//	fprintf(stderr, "--------------\n");
+//	print_out(ps.out);
 
-//	printf("\n--------------\n");
-//	printf("stack a\n");
-//	list_print(a);
 //	printf("\nstack b\n");
 //	list_print(b);
 
-	return (exit_success(gc));
+	return (exit_success(ps.gc));
 }
