@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 12:06:35 by agautier          #+#    #+#             */
-/*   Updated: 2021/08/04 14:32:32 by agautier         ###   ########.fr       */
+/*   Updated: 2021/08/23 19:16:28 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 **	On `a`, rotate values greater than median or pb values lesser.
 **	Median becomes a pivot.
 */
-static t_bool	pb_small(t_gc *gc, t_list **a, t_list **b, t_list **out)
+static t_bool	pb_small(t_ps *ps)
 {
 	t_list		*stack_a;
 	t_list		*stack_b;
@@ -24,27 +24,41 @@ static t_bool	pb_small(t_gc *gc, t_list **a, t_list **b, t_list **out)
 	uint32_t	median;
 	uint8_t		i;
 
-	stack_a = *a;
-	stack_b = *b;
+	stack_a = ps->a;
+	stack_b = ps->b;
+
+	fprintf(stderr, "stack_a\n");
+	list_print(stack_a);
+	fprintf(stderr, "\nstack_b\n");
+	list_print(stack_b);
 	median = get_median(stack_a);
 	fprintf(stderr, "median = %u\n", median);
+
 	curr = stack_a->begin;
 	i = stack_a->size;
 	while (curr && i)
 	{
 		if (*(uint32_t *)curr->data <= median)
-			if (!pb(gc, a, b, out))
+			if (!pb(ps))
+				return (FALSE);
+		if (stack_b->size > 1 && *(uint32_t *)stack_b->begin->data == median)
+			if (!rb(ps))
 				return (FALSE);
 		if (*(uint32_t *)curr->data > median)
-			if (!ra(gc, a, b, out))
+			if (!ra(ps))
 				return (FALSE);
 		curr = stack_a->begin;
 		i -= 1;
 	}
-//	fprintf(stderr, "stack_a\n");
-//	list_print(stack_a);
-//	fprintf(stderr, "stack_b\n");
-//	list_print(*b);
+	if (!rrb(ps))
+		return (FALSE);
+	if (!pa(ps))
+		return (FALSE);
+	fprintf(stderr, "median became a pivot : %u\n", median);
+	fprintf(stderr, "stack_a\n");
+	list_print(stack_a);
+	fprintf(stderr, "\nstack_b\n");
+	list_print(stack_b);
 	return (TRUE);
 }
 
@@ -52,7 +66,7 @@ static t_bool	pb_small(t_gc *gc, t_list **a, t_list **b, t_list **out)
 **	While ``b`` is not empty,
 **	rotate value lesser than median or pa values greater.
 */
-static t_bool	empty_b(t_gc *gc, t_list **a, t_list **b, t_list **out)
+static t_bool	empty_b(t_ps *ps)
 {
 	t_list		*stack_a;
 	t_list		*stack_b;
@@ -60,51 +74,54 @@ static t_bool	empty_b(t_gc *gc, t_list **a, t_list **b, t_list **out)
 	uint32_t	median;
 	uint8_t		i;
 
-	stack_a = *a;
-	stack_b = *b;
+	stack_a = ps->a;
+	stack_b = ps->b;
 	while (stack_b->size)
 	{
-//		fprintf(stderr, "===========\n\n");
 		// pa for big in b
+		fprintf(stderr, "=b==========\n");
+		list_print(stack_b);
 		median = get_median(stack_b);
-//		fprintf(stderr, "median = %u\n", median);
+		fprintf(stderr, "median = %u\n", median);
+
 		curr = stack_b->begin;
 		i = stack_b->size;
 		while (curr && i)
 		{
 			if (*(uint32_t *)curr->data < median)
-				if (!rb(gc, a, b, out))
+				if (!rb(ps))
 					return (FALSE);
 			if (*(uint32_t *)curr->data >= median)
-				if (!pa(gc, a, b, out))
+				if (!pa(ps))
 					return (FALSE);
 			if (*(uint32_t *)curr->data == median)
-				if (!ra(gc, a, b, out))
+				if (!ra(ps))
 					return (FALSE);
 			curr = stack_b->begin;
 			i -= 1;
 		}
-		if (!rra(gc, a, b, out))
+		if (!rra(ps))
 			return (FALSE);
-//		fprintf(stderr, "stack_a\n");
-//		list_print(stack_a);
-//		fprintf(stderr, "stack_b\n");
-//		list_print(*b);
+		fprintf(stderr, "median became a pivot : %u\n", median);
+		fprintf(stderr, "stack_a\n");
+		list_print(stack_a);
+		fprintf(stderr, "\nstack_b\n");
+		list_print(stack_b);
 	}
 	return (TRUE);
 }
 
 /*
-**	Apply quick sort for list longer than 5 elements.
+**	Apply quick sort.
 */
-t_bool	quick_sort(t_gc *gc, t_list **a, t_list **b, t_list **out)
+t_bool	quick_sort(t_ps *ps)
 {
 
-	if (!pb_small(gc, a, b, out))
+	if (!pb_small(ps))
 		return (FALSE);
-	if (!empty_b(gc, a, b, out))
+	if (!empty_b(ps))
 		return (FALSE);
-	if (!prep_insertion_sort(gc, a, b, out))
+	if (!prep_insertion_sort(ps))
 		return (FALSE);
 	return (TRUE);
 }

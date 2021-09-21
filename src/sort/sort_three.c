@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 18:29:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/31 13:45:28 by agautier         ###   ########.fr       */
+/*   Updated: 2021/08/21 20:15:10 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 **	3 2 1 => sa
 **	1 3 2 => sa
 */
-static t_bool	apply_sa(t_gc *gc, t_list **a, t_list **b, t_list **out)
+static t_bool	apply_sa(t_ps *ps)
 {
 	t_list	*stack_a;
 	t_node	*one;
 	t_node	*two;
 	t_node	*three;
 
-	stack_a = *a;
+	stack_a = ps->a;
 	one = stack_a->begin;
 	two = stack_a->begin->next;
 	three = stack_a->end;
@@ -32,7 +32,7 @@ static t_bool	apply_sa(t_gc *gc, t_list **a, t_list **b, t_list **out)
 		|| (is_great(one, two) && is_great(one, three) && is_great(two, three))
 		|| (is_great(two, one) && is_great(two, three) && is_great(three, one)))
 	{
-		if (!sa(gc, a, b, out))
+		if (!sa(ps))
 			return (FALSE);
 	}
 	return (TRUE);
@@ -41,20 +41,20 @@ static t_bool	apply_sa(t_gc *gc, t_list **a, t_list **b, t_list **out)
 /*
 **	3 1 2 => ra
 */
-static t_bool	apply_ra(t_gc *gc, t_list **a, t_list **b, t_list **out)
+static t_bool	apply_ra(t_ps *ps)
 {
 	t_list	*stack_a;
 	t_node	*one;
 	t_node	*two;
 	t_node	*three;
 
-	stack_a = *a;
+	stack_a = ps->a;
 	one = stack_a->begin;
 	two = stack_a->begin->next;
 	three = stack_a->end;
 	if (is_great(one, two) && is_great(one, three) && is_great(three, two))
 	{
-		if (!ra(gc, a, b, out))
+		if (!ra(ps))
 			return (FALSE);
 	}
 	return (TRUE);
@@ -63,20 +63,20 @@ static t_bool	apply_ra(t_gc *gc, t_list **a, t_list **b, t_list **out)
 /*
 **	2 3 1 => rra
 */
-static t_bool	apply_rra(t_gc *gc, t_list **a, t_list **b, t_list **out)
+static t_bool	apply_rra(t_ps *ps)
 {
 	t_list	*stack_a;
 	t_node	*one;
 	t_node	*two;
 	t_node	*three;
 
-	stack_a = *a;
+	stack_a = ps->a;
 	one = stack_a->begin;
 	two = stack_a->begin->next;
 	three = stack_a->end;
 	if (is_great(two, one) && is_great(two, three) && is_great(one, three))
 	{
-		if (!rra(gc, a, b, out))
+		if (!rra(ps))
 			return (FALSE);
 	}
 	return (TRUE);
@@ -91,13 +91,13 @@ static t_bool	apply_rra(t_gc *gc, t_list **a, t_list **b, t_list **out)
 **	1 3 2 => sa ra
 **	2 3 1 => rra
 */
-t_bool	sort_three(t_gc *gc, t_list **a, t_list **b, t_list **out)
+t_bool	sort_three(t_ps *ps)
 {
-	if (!apply_sa(gc, a, b, out))
+	if (!apply_sa(ps))
 		return (FALSE);
-	if (!apply_ra(gc, a, b, out))
+	if (!apply_ra(ps))
 		return (FALSE);
-	if (!apply_rra(gc, a, b, out))
+	if (!apply_rra(ps))
 		return (FALSE);
 	return (TRUE);
 }

@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 13:54:58 by agautier          #+#    #+#             */
-/*   Updated: 2021/06/02 19:03:08 by agautier         ###   ########.fr       */
+/*   Updated: 2021/08/23 18:39:12 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,21 @@
 /*
 **	Optimized sort for stack under 5 elements.
 */
-t_bool	sort_very_small(t_gc *gc, t_list **a, t_list **b, t_list **out)
+t_bool	sort_very_small(t_ps *ps)
 {
-	t_list	*stack_a;
-
-	stack_a = *a;
-	if (stack_a->size == 2)
+	if (ps->a->size == 2)
 	{
-		if (!sort_two(gc, a, b, out))
+		if (!sort_two(ps))
 			return (FALSE);
 	}
-	if (stack_a->size <= 3)
+	if (ps->a->size <= 3)
 	{
-		if (!sort_three(gc, a, b, out))
+		if (!sort_three(ps))
 			return (FALSE);
 	}
-	else if (stack_a->size <= 5)
+	else if (ps->a->size <= 5)
 	{
-		if (!sort_five(gc, a, b, out))
+		if (!sort_five(ps))
 			return (FALSE);
 	}
 	return (TRUE);

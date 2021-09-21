@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 17:05:36 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/31 13:43:41 by agautier         ###   ########.fr       */
+/*   Updated: 2021/08/21 20:04:30 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,10 @@
 /*
 **	
 */
-t_bool	sort_two(t_gc *gc, t_list **a, t_list **b, t_list **out)
+t_bool	sort_two(t_ps *ps)
 {
-	t_list	*stack_a;
-
-	stack_a = *a;
-	if (is_great(stack_a->begin, stack_a->end))
-		if (!sa(gc, a, b, out))
+	if (is_great(ps->a->begin, ps->a->end))
+		if (!sa(ps))
 			return (FALSE);
 	return (TRUE);
 }
