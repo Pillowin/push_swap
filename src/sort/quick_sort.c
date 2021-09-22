@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 12:06:35 by agautier          #+#    #+#             */
-/*   Updated: 2021/08/23 19:16:28 by agautier         ###   ########.fr       */
+/*   Updated: 2021/09/21 17:42:54 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ static t_bool	pb_small(t_ps *ps)
 	stack_a = ps->a;
 	stack_b = ps->b;
 
-	fprintf(stderr, "stack_a\n");
-	list_print(stack_a);
-	fprintf(stderr, "\nstack_b\n");
-	list_print(stack_b);
+	//fprintf(stderr, "stack_a\n");
+	//list_printf(stack_a);
+	//fprintf(stderr, "\nstack_b\n");
+	//list_printf(stack_b);
 	median = get_median(stack_a);
-	fprintf(stderr, "median = %u\n", median);
+	//fprintf(stderr, "median = %u\n", median);
 
 	curr = stack_a->begin;
 	i = stack_a->size;
@@ -54,11 +54,11 @@ static t_bool	pb_small(t_ps *ps)
 		return (FALSE);
 	if (!pa(ps))
 		return (FALSE);
-	fprintf(stderr, "median became a pivot : %u\n", median);
-	fprintf(stderr, "stack_a\n");
-	list_print(stack_a);
-	fprintf(stderr, "\nstack_b\n");
-	list_print(stack_b);
+	//fprintf(stderr, "median became a pivot : %u\n", median);
+	//fprintf(stderr, "stack_a\n");
+	//list_printf(stack_a);
+	//fprintf(stderr, "\nstack_b\n");
+	//list_printf(stack_b);
 	return (TRUE);
 }
 
@@ -79,10 +79,10 @@ static t_bool	empty_b(t_ps *ps)
 	while (stack_b->size)
 	{
 		// pa for big in b
-		fprintf(stderr, "=b==========\n");
-		list_print(stack_b);
+		//fprintf(stderr, "=b==========\n");
+		//list_printf(stack_b);
 		median = get_median(stack_b);
-		fprintf(stderr, "median = %u\n", median);
+		//fprintf(stderr, "median = %u\n", median);
 
 		curr = stack_b->begin;
 		i = stack_b->size;
@@ -102,11 +102,11 @@ static t_bool	empty_b(t_ps *ps)
 		}
 		if (!rra(ps))
 			return (FALSE);
-		fprintf(stderr, "median became a pivot : %u\n", median);
-		fprintf(stderr, "stack_a\n");
-		list_print(stack_a);
-		fprintf(stderr, "\nstack_b\n");
-		list_print(stack_b);
+		//fprintf(stderr, "median became a pivot : %u\n", median);
+		//fprintf(stderr, "stack_a\n");
+		//list_printf(stack_a);
+		//fprintf(stderr, "\nstack_b\n");
+		//list_printf(stack_b);
 	}
 	return (TRUE);
 }
