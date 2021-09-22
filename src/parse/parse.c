@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 12:02:01 by agautier          #+#    #+#             */
-/*   Updated: 2021/07/01 16:57:10 by agautier         ###   ########.fr       */
+/*   Updated: 2021/09/22 16:32:27 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static t_bool	is_duplicate(t_list *a, int nbr)
 */
 t_bool	parse(t_gc *gc, t_list **a, int argc, char **argv)
 {
-	int		*nbr;
-	uint8_t	i;
+	int			*nbr;
+	uint16_t	i;
 
 	i = 0;
 	while (i < argc - 1)

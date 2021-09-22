@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:58:04 by agautier          #+#    #+#             */
-/*   Updated: 2021/08/23 19:14:45 by agautier         ###   ########.fr       */
+/*   Updated: 2021/09/22 16:13:26 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_bool	rb(t_ps *ps)
 	t_node	*tmp;
 
 	list = ps->b;
-	if (!list->begin)
+	if (list->size <= 1)
 		return (TRUE);
 	tmp = list->begin;
 	list->begin = list->begin->next;

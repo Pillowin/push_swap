@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:25:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/09/21 19:02:09 by agautier         ###   ########.fr       */
+/*   Updated: 2021/09/22 16:24:41 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,11 @@ int	main(int argc, char **argv)
 	if (!parse(ps.gc, &(ps.a), argc, argv + 1))	// TODO: change params
 		return (exit_failure(ps.gc));
 
-	list_print(ps.a);
+//	fprintf(stderr, "--------start of main------\n");
+//	fprintf(stderr, "stack_a\n");
+//	list_print(ps.a);
+//	fprintf(stderr, "\nstack_b\n");
+//	list_print(ps.b);
 
 	if (ps.a->size <= 1)
 		return (exit_success(ps.gc));
@@ -63,10 +67,11 @@ int	main(int argc, char **argv)
 	else
 		quick_sort(&ps);
 
-	fprintf(stderr, "--------end of main------\n");
-	fprintf(stderr, "stack_a\n");
-	fprintf(stderr, "\nstack_b\n");
-	list_print(ps.b);
+//	fprintf(stderr, "--------end of main------\n");
+//	fprintf(stderr, "stack_a\n");
+//	list_print(ps.a);
+//	fprintf(stderr, "\nstack_b\n");
+//	list_print(ps.b);
 
 	opti_out(ps.gc, &ps.out);
 //	fprintf(stderr, "--------------\n");

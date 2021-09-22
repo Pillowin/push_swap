@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 12:57:10 by agautier          #+#    #+#             */
-/*   Updated: 2021/07/09 15:49:47 by agautier         ###   ########.fr       */
+/*   Updated: 2021/09/22 16:41:32 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 /*
 **	Count number bigger than nbr in list.
 */
-static uint8_t	count_bigger(t_list *list, int nbr)
+static uint16_t	count_bigger(t_list *list, int nbr)
 {
 	t_node	*curr;
-	uint8_t	count;
+	uint16_t	count;
 
 	count = 0;
 	curr = list->begin;
