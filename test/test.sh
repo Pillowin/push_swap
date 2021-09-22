@@ -33,6 +33,8 @@ fi
 
 av=0
 ok=0
+min_op=999999
+max_op=0
 for i in `seq 1 $nb_lists`
 do
 	arg=`shuf -i $min-$max`
@@ -53,7 +55,20 @@ do
 		echo -e "\t${GREEN}[OK]${NC} in $ret operations"
 		av=$(($av + $ret))
 		ok=$(($ok + 1))
+		if [ "$ret" -lt "$min_op" ]
+		then
+			min_op=$ret
+		fi
+		if [ "$ret" -gt "$max_op" ]
+		then
+			max_op=$ret
+		fi
 	fi
 done
 
-echo "Average: $(($av/$ok)) operations"
+if [ "$ok" -gt "0" ]
+then
+	echo "Average: $(($av/$ok)) operations"
+fi
+echo "Min: $min_op operations"
+echo "Max: $max_op operations"
