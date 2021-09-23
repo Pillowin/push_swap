@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 16:12:14 by agautier          #+#    #+#             */
-/*   Updated: 2021/09/22 16:42:11 by agautier         ###   ########.fr       */
+/*   Updated: 2021/09/23 21:28:49 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static t_op	get_fastest_op(t_list *list, t_node *elem)
 
 	curr = list->begin;
 	pos = 0;
-	while (elem && curr && elem && is_great(elem, curr))
+	while (elem && curr && curr != elem)
 	{
 		pos += 1;
 		curr = curr->next;
@@ -38,32 +38,16 @@ static t_op	get_fastest_op(t_list *list, t_node *elem)
 /*
 **	
 */
-static t_bool	insertion_sort(t_ps *ps, uint16_t pivot_intervall)
+static t_bool	insertion_sort(t_ps *ps)
 {
+	static uint32_t	interesting_value = 0;
 	t_list			*stack_a;
 	t_list			*stack_b;
-	static uint32_t	interesting_value = 0;
 	t_op			op;
 
-	//fprintf(stderr, "insertion_sort\n");
 	stack_a = ps->a;
 	stack_b = ps->b;
-
-	//fprintf(stderr, "stack_a\n");
-	//list_print(stack_a);
-	//fprintf(stderr, "\nstack_b\n");
-	//list_print(stack_b);
-
-//	interesting_value = *(uint32_t *)stack_a->end->data + 1;
-//	if (pivot_intervall <= 2 && *(uint32_t *)stack_a->end->data != 1)	// TODO: sur ?
-//	{
-//		//fprintf(stderr, "\t\t\t\t=====HERE\n");
-//		interesting_value = 1;
-//	}
-	(void)pivot_intervall;
 	interesting_value += 1;
-	//fprintf(stderr, "interesting_value = %d\n", interesting_value);
-
 	if (is_in_a(ps, interesting_value))
 	{
 		while (*(uint32_t *)stack_a->begin->data != interesting_value)
@@ -71,7 +55,6 @@ static t_bool	insertion_sort(t_ps *ps, uint16_t pivot_intervall)
 			if (!pb(ps))
 				return (FALSE);
 		}
-
 		if (!ra(ps))
 			return (FALSE);
 	}
@@ -98,10 +81,6 @@ static t_bool	insertion_sort(t_ps *ps, uint16_t pivot_intervall)
 			return (FALSE);
 		interesting_value += 1;
 	}
-	//fprintf(stderr, "stack_a\n");
-	//list_print(stack_a);
-	//fprintf(stderr, "\nstack_b\n");
-	//list_print(stack_b);
 	return (TRUE);
 }
 
@@ -121,20 +100,7 @@ static t_bool	pb_small(t_ps *ps, uint16_t pivot_intervall)
 	stack_a = ps->a;
 	stack_b = ps->b;
 	end = stack_a->end;
-
-	//fprintf(stderr, "BEGIN ADD_PIVOT->PB_SMALL\n");
-	//fprintf(stderr, "pivot_intervall = %d\n\n", pivot_intervall);
-
-	//fprintf(stderr, "stack_a\n");
-	//list_print(stack_a);
-	//fprintf(stderr, "\nstack_b\n");
-	//list_print(stack_b);
-
-//	median = (stack_a->size >> 1) + ((stack_a->size - pivot_intervall + 1) >> 1);
-//	median = ((stack_a->size + stack_b->size) >> 1) + ((pivot_intervall + 1) >> 1);
 	median = *(uint32_t *)stack_a->end->data + ((pivot_intervall + 1) >> 1);
-	//fprintf(stderr, "median in a = %u\n", median);
-
 	curr = stack_a->begin;
 	i = pivot_intervall;
 	while (curr && i)
@@ -151,75 +117,51 @@ static t_bool	pb_small(t_ps *ps, uint16_t pivot_intervall)
 		curr = stack_a->begin;
 		i -= 1;
 	}
-	
 	//TODO: push end of A at the begining of A
 	while (stack_a->end != end)
 	{
 		if (!rra(ps))
 			return (FALSE);
 	}
-
 	//TODO: push pivot (end of B) at begining of A
 	if (!rrb(ps))
 		return (FALSE);
 	if (!pa(ps))
 		return (FALSE);
-
 	//TODO: - new pivots in B
-	//fprintf(stderr, "stack_a\n");
-	//list_print(stack_a);
-	//fprintf(stderr, "\nstack_b\n");
-	//list_print(stack_b);
-	//fprintf(stderr, "pivot_intervall = %d\n", pivot_intervall);
-	if (stack_b->size < MAGIC)
+	while (stack_b->size > MAGIC)
 	{
-		if (!insertion_sort(ps, pivot_intervall))
+		median = *(uint32_t *)find_min(stack_b)->data + ((stack_b->size + 1) >> 1);
+		fprintf(stderr, "median in b = %d\n", median);
+		curr = stack_b->begin;
+		i = stack_b->size;
+		while (curr && i)
+		{
+			if (*(uint32_t *)curr->data < median)
+				if (!rb(ps))
+					return (FALSE);
+			if (*(uint32_t *)curr->data >= median)
+				if (!pa(ps))
+					return (FALSE);
+			if (*(uint32_t *)curr->data == median)
+				if (!ra(ps))
+					return (FALSE);
+			curr = stack_b->begin;
+			i -= 1;
+		}
+		if (!rra(ps))
 			return (FALSE);
 	}
-	else
+	if (stack_b->size > 0 && stack_b->size < MAGIC)
 	{
-		while (stack_b->size > MAGIC)
-		{
-	//		median = pivot_intervall + ((stack_b->size + 1) >> 1);
-			// func find_min_in_intervall
-			//median += ((stack_b->size + 1) >> 1);
-			median = *(uint32_t *)find_min(stack_b)->data + ((stack_b->size + 1) >> 1);
-			//fprintf(stderr, "median in b = %u\n", median);
-
-			curr = stack_b->begin;
-			i = stack_b->size;
-			while (curr && i)
-			{
-				if (*(uint32_t *)curr->data < median)
-					if (!rb(ps))
-						return (FALSE);
-				if (*(uint32_t *)curr->data >= median)
-					if (!pa(ps))
-						return (FALSE);
-				if (*(uint32_t *)curr->data == median)
-					if (!ra(ps))
-						return (FALSE);
-				curr = stack_b->begin;
-				i -= 1;
-			}
-			if (!rra(ps))
-				return (FALSE);
-			//fprintf(stderr, "median became a pivot : %u\n", median);
-//			exit(EXIT_FAILURE);
-		}
+		if (!insertion_sort(ps))
+			return (FALSE);
 	}
-//	exit(EXIT_FAILURE);
-
-		//fprintf(stderr, "stack_a\n");
-		//list_print(stack_a);
-		//fprintf(stderr, "\nstack_b\n");
-		//list_print(stack_b);
 	return (TRUE);
 }
 
 /*
-**	TODO: add_pivot
-**	TODO: register newly created pivot in find_intervall etc
+**	
 */
 static t_bool	add_pivot(t_ps *ps, uint16_t pivot_intervall)
 {
@@ -249,7 +191,7 @@ t_bool	prep_insertion_sort(t_ps *ps)
 		// Si je suis pas sur un pivot => tri insertion
 		if (pivot_intervall < MAGIC)	// TODO: find magic value
 		{
-			if (!insertion_sort(ps, pivot_intervall))
+			if (!insertion_sort(ps))
 				return (FALSE);
 			deepness = 1;
 		}

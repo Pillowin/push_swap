@@ -27,10 +27,10 @@ This project will make you sort data on a stack, with a limited set of instructi
 - Create new pivot for big chunks
 	- ~~update pivots functions~~
 	- ~~copy func to create pivots out of quick_sort.c~~
-	- restart same algo to create pivots
+	- ~~restart same algo to create pivots~~
 	=> ~~need to create struct for gc a b out ? in order to pass args~~
-	- intervall / 2
-	- find magic values
+	- ~~intervall / 2~~
+	- ~~find magic values~~
 
 - Creation de pivot
 	- ~~push pivot at end of B~~
@@ -46,18 +46,18 @@ This project will make you sort data on a stack, with a limited set of instructi
 	- ~~push pivot at end of A~~
 
 	- ~~push pivot at begining of A~~
-	- push smaller (in B) at begining of A => or Insertion sort
+	- ~~push smaller (in B) at begining of A => or Insertion sort~~
 
 - Insertion sort
-	- check if value is in A or B
-		- A
-		- while not interesting_value PB
-		- RA
+	- ~~check if value is in A or B~~
+		- ~~A~~
+		- ~~while not interesting_value PB~~
+		- ~~RA~~
 
-		- B
-		- find optimal RB or RRB
-		- PA
-		- RA
+		- ~~B~~
+		- ~~find optimal RB or RRB~~
+		- ~~PA~~
+		- ~~RA~~
 
 - Norm all
 - Test leaks
