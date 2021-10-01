@@ -32,7 +32,7 @@ This project will make you sort data on a stack, with a limited set of instructi
 	- ~~intervall / 2~~
 	- ~~find magic values~~
 
-- Creation de pivot
+- ~~Creation de pivot~~
 	- ~~push pivot at end of B~~
 	- ~~push smaller in B~~
 	- ~~push bigger at end of A~~
@@ -48,7 +48,7 @@ This project will make you sort data on a stack, with a limited set of instructi
 	- ~~push pivot at begining of A~~
 	- ~~push smaller (in B) at begining of A => or Insertion sort~~
 
-- Insertion sort
+- ~~Insertion sort~~
 	- ~~check if value is in A or B~~
 		- ~~A~~
 		- ~~while not interesting_value PB~~
@@ -59,6 +59,10 @@ This project will make you sort data on a stack, with a limited set of instructi
 		- ~~PA~~
 		- ~~RA~~
 
+- Fix pivot calculation while creating new ones in A and B
+- Fix find_intervall
+
+- Play with magic number
 - Norm all
 - Test leaks
 

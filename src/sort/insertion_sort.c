@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 16:12:14 by agautier          #+#    #+#             */
-/*   Updated: 2021/09/23 21:28:49 by agautier         ###   ########.fr       */
+/*   Updated: 2021/10/01 19:05:58 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ static t_bool	insertion_sort(t_ps *ps)
 **	On `a`, rotate values greater than median or pb values lesser.
 **	Median becomes a pivot.
 */
-static t_bool	pb_small(t_ps *ps, uint16_t pivot_intervall)
+static t_bool	add_pivot(t_ps *ps, uint16_t pivot_intervall)
 {
 	t_list		*stack_a;
 	t_list		*stack_b;
@@ -101,6 +101,7 @@ static t_bool	pb_small(t_ps *ps, uint16_t pivot_intervall)
 	stack_b = ps->b;
 	end = stack_a->end;
 	median = *(uint32_t *)stack_a->end->data + ((pivot_intervall + 1) >> 1);
+	fprintf(stderr, "median in a = %d\n", median);
 	curr = stack_a->begin;
 	i = pivot_intervall;
 	while (curr && i)
@@ -131,7 +132,7 @@ static t_bool	pb_small(t_ps *ps, uint16_t pivot_intervall)
 	//TODO: - new pivots in B
 	while (stack_b->size > MAGIC)
 	{
-		median = *(uint32_t *)find_min(stack_b)->data + ((stack_b->size + 1) >> 1);
+		median = *(uint32_t *)find_min(stack_b)->data + ((stack_b->size + 1) >> 1);	// TODO: may be incorrect
 		fprintf(stderr, "median in b = %d\n", median);
 		curr = stack_b->begin;
 		i = stack_b->size;
@@ -157,16 +158,14 @@ static t_bool	pb_small(t_ps *ps, uint16_t pivot_intervall)
 		if (!insertion_sort(ps))
 			return (FALSE);
 	}
-	return (TRUE);
-}
-
-/*
-**	
-*/
-static t_bool	add_pivot(t_ps *ps, uint16_t pivot_intervall)
-{
-	if (!pb_small(ps, pivot_intervall))
-		return (FALSE);
+	else	// TODO: remove for optimization
+	{
+		while (stack_b->size)
+		{
+			if (!pa(ps))
+				return (FALSE);
+		}
+	}
 	return (TRUE);
 }
 
@@ -183,28 +182,33 @@ t_bool	prep_insertion_sort(t_ps *ps)
 	stack_a = ps->a;
 	stack_b = ps->b;
 	deepness = 1;
-	//fprintf(stderr, "------------------------PREP INSERTION----------------------\n");
 	while (!is_sorted(stack_a) || stack_b->size != 0)
 	{
+		// evryting in A
+		// find_intervall does not know created by median in B
 		pivot_intervall = find_intervall(ps, stack_a->begin, deepness);
-		//fprintf(stderr, "pivot intervall = %d\n\n", pivot_intervall);
-		// Si je suis pas sur un pivot => tri insertion
+
+		fprintf(stderr, "\n=========================\n");
+		fprintf(stderr, "intervall = %d\n", pivot_intervall);
+		fprintf(stderr, "node = %d\n", *(uint32_t *)stack_a->begin->data);
+		fprintf(stderr, "\nstack_a\n\n");
+		list_print(stack_a);
+		fprintf(stderr, "\nstack_b\n\n");
+		list_print(stack_b);
+
 		if (pivot_intervall < MAGIC)	// TODO: find magic value
 		{
+			fprintf(stderr, "\n----------\tINSERTION\t--------\n\n");
 			if (!insertion_sort(ps))
 				return (FALSE);
 			deepness = 1;
 		}
 		else
 		{
-			// TODO: make new pivot (in is_pivot too)
-			//fprintf(stderr, "new pivot\n");
+			fprintf(stderr, "\n***********\tQUICK\t************\n\n");
 			deepness += 1;
-//			if (!insertion_sort(ps, pivot_intervall))
-//				return (FALSE);
 			if (!add_pivot(ps, pivot_intervall))
 				return (FALSE);
-//			break ;
 		}
 	}
 	return (TRUE);

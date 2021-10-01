@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 12:06:35 by agautier          #+#    #+#             */
-/*   Updated: 2021/09/22 16:32:51 by agautier         ###   ########.fr       */
+/*   Updated: 2021/10/01 19:06:16 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ static t_bool	pb_small(t_ps *ps)
 	if (!pa(ps))
 		return (FALSE);
 	//fprintf(stderr, "median became a pivot quick : %u\n", median);
+	fprintf(stderr, "median = %d\n", median);
 	////fprintf(stderr, "stack_a\n");
 	////list_printf(stack_a);
 	////fprintf(stderr, "\nstack_b\n");
@@ -83,6 +84,7 @@ static t_bool	empty_b(t_ps *ps)
 		////list_printf(stack_b);
 		median = get_median(stack_b);
 		////fprintf(stderr, "median = %u\n", median);
+		fprintf(stderr, "median = %d\n", median);
 
 		curr = stack_b->begin;
 		i = stack_b->size;
