@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 12:06:35 by agautier          #+#    #+#             */
-/*   Updated: 2021/10/01 19:06:16 by agautier         ###   ########.fr       */
+/*   Updated: 2021/10/05 17:03:51 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,22 @@ static t_bool	pb_small(t_ps *ps)
 	t_list		*stack_b;
 	t_node		*curr;
 	uint32_t	median;
-	uint16_t		i;
+	uint16_t	i;
+	uint32_t	*ptr;
 
 	stack_a = ps->a;
 	stack_b = ps->b;
 
-	////fprintf(stderr, "stack_a\n");
-	////list_printf(stack_a);
-	////fprintf(stderr, "\nstack_b\n");
-	////list_printf(stack_b);
+	//////////fprintf(stderr, "stack_a\n");
+	//////list_printf(stack_a);
+	//////////fprintf(stderr, "\nstack_b\n");
+	//////list_printf(stack_b);
 	median = get_median(stack_a);
+	ptr = gc_calloc(ps->gc, 1, sizeof(median));
+	if (!ptr)
+		return (FALSE);
+	*ptr = median;
+	list_push_back(ps->gc, &ps->pivot, ptr);
 	////fprintf(stderr, "median = %u\n", median);
 
 	curr = stack_a->begin;
@@ -54,12 +60,12 @@ static t_bool	pb_small(t_ps *ps)
 		return (FALSE);
 	if (!pa(ps))
 		return (FALSE);
-	//fprintf(stderr, "median became a pivot quick : %u\n", median);
-	fprintf(stderr, "median = %d\n", median);
-	////fprintf(stderr, "stack_a\n");
-	////list_printf(stack_a);
-	////fprintf(stderr, "\nstack_b\n");
-	////list_printf(stack_b);
+	////////fprintf(stderr, "median became a pivot quick : %u\n", median);
+	//////fprintf(stderr, "median = %d\n", median);
+	//////////fprintf(stderr, "stack_a\n");
+	//////list_printf(stack_a);
+	//////////fprintf(stderr, "\nstack_b\n");
+	//////list_printf(stack_b);
 	return (TRUE);
 }
 
@@ -74,17 +80,22 @@ static t_bool	empty_b(t_ps *ps)
 	t_node		*curr;
 	uint32_t	median;
 	uint16_t		i;
+	uint32_t	*ptr;
 
 //	stack_a = ps->a;
 	stack_b = ps->b;
 	while (stack_b->size)
 	{
 		// pa for big in b
-		////fprintf(stderr, "=b==========\n");
-		////list_printf(stack_b);
+		//////////fprintf(stderr, "=b==========\n");
+		//////list_printf(stack_b);
 		median = get_median(stack_b);
-		////fprintf(stderr, "median = %u\n", median);
-		fprintf(stderr, "median = %d\n", median);
+		ptr = gc_calloc(ps->gc, 1, sizeof(median));
+		if (!ptr)
+			return (FALSE);
+		*ptr = median;
+		list_push_back(ps->gc, &ps->pivot, ptr);
+		////fprintf(stderr, "median = %d\n", median);
 
 		curr = stack_b->begin;
 		i = stack_b->size;
@@ -104,11 +115,11 @@ static t_bool	empty_b(t_ps *ps)
 		}
 		if (!rra(ps))
 			return (FALSE);
-		//fprintf(stderr, "median became a pivot empty b : %u\n", median);
-		//fprintf(stderr, "stack_a\n");
-		//list_print(stack_a);
-		//fprintf(stderr, "\nstack_b\n");
-		//list_print(stack_b);
+		////////fprintf(stderr, "median became a pivot empty b : %u\n", median);
+		////////fprintf(stderr, "stack_a\n");
+		////list_print(stack_a);
+		////////fprintf(stderr, "\nstack_b\n");
+		////list_print(stack_b);
 	}
 	return (TRUE);
 }

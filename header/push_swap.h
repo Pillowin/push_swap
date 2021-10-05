@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:26:49 by agautier          #+#    #+#             */
-/*   Updated: 2021/10/01 19:06:50 by agautier         ###   ########.fr       */
+/*   Updated: 2021/10/05 19:41:27 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@
 # include "push_swap_sort.h"
 # include "push_swap_opti.h"
 
-# define MAGIC 15
+# define MAGIC 20
 
 typedef struct	s_ps
 {
 	t_gc	*gc;
 	t_list	*a;
 	t_list	*b;
+	t_list	*pivot;
 	t_list	*out;
 }	t_ps;
 

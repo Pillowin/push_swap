@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:25:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/10/01 19:06:45 by agautier         ###   ########.fr       */
+/*   Updated: 2021/10/04 20:37:01 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (EXIT_SUCCESS);
 
-	ps = (t_ps){NULL, NULL, NULL, NULL};
+	ps = (t_ps){NULL, NULL, NULL, NULL, NULL};
 	ps.gc = gc_new(&((t_gc){NULL, 0, 0}));
 	if (!ps.gc)
 		return (EXIT_FAILURE);
@@ -46,6 +46,9 @@ int	main(int argc, char **argv)
 		return (exit_failure(ps.gc));
 	ps.b = list_new(ps.gc);
 	if (!ps.b)
+		return (exit_failure(ps.gc));
+	ps.pivot = list_new(ps.gc);
+	if (!ps.pivot)
 		return (exit_failure(ps.gc));
 	ps.out = list_new(ps.gc);
 	if (!ps.out)
