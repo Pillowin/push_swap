@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:26:49 by agautier          #+#    #+#             */
-/*   Updated: 2021/10/05 19:41:27 by agautier         ###   ########.fr       */
+/*   Updated: 2021/10/06 14:45:22 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 # define MAGIC 20
 
-typedef struct	s_ps
+typedef struct s_ps
 {
 	t_gc	*gc;
 	t_list	*a;

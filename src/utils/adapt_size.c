@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_sort.h                                   :+:      :+:    :+:   */
+/*   adapt_size.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/30 18:26:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/10/06 14:49:52 by agautier         ###   ########.fr       */
+/*   Created: 2021/10/06 16:30:22 by agautier          #+#    #+#             */
+/*   Updated: 2021/10/06 22:12:45 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_SORT_H
-# define PUSH_SWAP_SORT_H
+#include "push_swap.h"
 
-# include "libft.h"
+/*
+**	If pa list A size increase by 1, if pb list A decrease by 1.
+*/
+uint16_t	adapt_size(char *data)
+{
+	uint16_t	ret;
 
-typedef struct s_ps	t_ps;
-
-t_bool	sort_very_small(t_ps *ps);
-
-t_bool	sort_two(t_ps *ps);
-t_bool	sort_three(t_ps *ps);
-t_bool	sort_five(t_ps *ps);
-
-t_bool	quick_sort(t_ps *ps);
-
-t_bool	prep_insertion_sort(t_ps *ps);
-
-#endif
+	ret = 0;
+	if (ft_strcmp(data, "pa"))
+		ret += -1;
+	if (ft_strcmp(data, "pb"))
+		ret += 1;
+	return (ret);
+}

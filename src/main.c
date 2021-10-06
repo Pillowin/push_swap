@@ -6,25 +6,30 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:25:43 by agautier          #+#    #+#             */
-/*   Updated: 2021/10/04 20:37:01 by agautier         ###   ########.fr       */
+/*   Updated: 2021/10/06 21:01:32 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
-**	Print out list which contains instructions.
+**	Init push_swap struct named ps by creating its lists.
 */
-static void	print_out(t_list *out)
+static t_bool	ps_init(t_ps **ps)
 {
-	t_node	*curr;
-
-	curr = out->begin;
-	while (curr)
-	{
-		printf("%s\n", (char *)curr->data);
-		curr = curr->next;
-	}
+	(*ps)->a = list_new((*ps)->gc);
+	if (!(*ps)->a)
+		return (FALSE);
+	(*ps)->b = list_new((*ps)->gc);
+	if (!(*ps)->b)
+		return (FALSE);
+	(*ps)->pivot = list_new((*ps)->gc);
+	if (!(*ps)->pivot)
+		return (FALSE);
+	(*ps)->out = list_new((*ps)->gc);
+	if (!(*ps)->out)
+		return (FALSE);
+	return (TRUE);
 }
 
 /*
@@ -32,40 +37,25 @@ static void	print_out(t_list *out)
 */
 int	main(int argc, char **argv)
 {
-	t_ps	ps;
+	t_ps	*ps;
 
 	if (argc < 2)
 		return (EXIT_SUCCESS);
-
-	ps = (t_ps){NULL, NULL, NULL, NULL, NULL};
-	ps.gc = gc_new(&((t_gc){NULL, 0, 0}));
-	if (!ps.gc)
+	ps = &((t_ps){NULL, NULL, NULL, NULL, NULL});
+	ps->gc = gc_new(&((t_gc){NULL, 0, 0}));
+	if (!ps->gc)
 		return (EXIT_FAILURE);
-	ps.a = list_new(ps.gc);
-	if (!ps.a)
-		return (exit_failure(ps.gc));
-	ps.b = list_new(ps.gc);
-	if (!ps.b)
-		return (exit_failure(ps.gc));
-	ps.pivot = list_new(ps.gc);
-	if (!ps.pivot)
-		return (exit_failure(ps.gc));
-	ps.out = list_new(ps.gc);
-	if (!ps.out)
-		return (exit_failure(ps.gc));
-
-	if (!parse(ps.gc, &(ps.a), argc, argv + 1))	// TODO: change params
-		return (exit_failure(ps.gc));
-
-	if (ps.a->size <= 1)
-		return (exit_success(ps.gc));
-	else if (ps.a->size <= 5)
-		sort_very_small(&ps);
+	if (!ps_init(&ps))
+		return (exit_failure(ps->gc));
+	if (!parse(ps->gc, &(ps->a), argc, argv + 1))
+		return (exit_failure(ps->gc));
+	if (ps->a->size <= 1)
+		return (exit_success(ps->gc));
+	else if (ps->a->size <= 5)
+		sort_very_small(ps);
 	else
-		quick_sort(&ps);
-
-	opti_out(ps.gc, &ps.out);
-	print_out(ps.out);
-
-	return (exit_success(ps.gc));
+		quick_sort(ps);
+	opti_out(ps->gc, &ps->out);
+	print_out(ps->out);
+	return (exit_success(ps->gc));
 }

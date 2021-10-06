@@ -6,53 +6,11 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 11:58:17 by agautier          #+#    #+#             */
-/*   Updated: 2021/09/15 16:37:23 by agautier         ###   ########.fr       */
+/*   Updated: 2021/10/06 22:23:03 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*
-**	Returns fastest rotation to sort list.
-*/
-char	*find_last_rotate(t_list *out)
-{
-	t_node	*curr;
-	void	*data;
-
-	data = NULL;
-	curr = out->begin;
-	while (curr)
-	{
-		if (!ft_strcmp(curr->data, "ra") || !ft_strcmp(curr->data, "rra"))
-			data = curr->data;
-		curr = curr->next;
-	}
-	return (data);
-}
-
-/*
-** Returns fastest rotation to sort list.
-** TODO: generic for A or B (used in insertion_sort)
-*/
-t_op	get_fastest_op(t_list *list, t_node *elem)
-{
-	uint16_t	pos;
-	t_node		*curr;
-
-	curr = list->begin;
-	pos = 0;
-	while (elem && curr && elem && is_great(elem, curr))
-	{
-		pos += 1;
-		curr = curr->next;
-	}
-	if (list->begin == curr && pos > list->size >> 1)
-		pos = list->size - pos;
-	if (pos > list->size >> 1)
-		return (rra);
-	return (ra);
-}
 
 /*
 **
@@ -65,7 +23,7 @@ static t_bool	sort_a(t_ps *ps)
 
 	stack_a = ps->a;
 	stack_b = ps->b;
-	op = get_fastest_op(stack_a, stack_b->begin);
+	op = get_fastest_op(ps, stack_a, stack_b->begin);
 	while (!(is_sorted(stack_a) && (is_great(stack_a->begin, stack_b->begin)
 				|| is_great(stack_b->begin, stack_a->end)))
 		&& ((op == rra && is_great(stack_a->end, stack_b->begin))
@@ -137,20 +95,14 @@ void	opti_sort_five(t_ps *ps)
 	curr = list->begin;
 	while (curr)
 	{
-		if (ft_strcmp(curr->data, "pa"))
-			size -= 1;
-		if (ft_strcmp(curr->data, "pb"))
-			size += 1;
+		size += adapt_size(curr->data);
 		seq = get_sequence(curr);
 		if (seq == size)
 			curr = del_nexts_op(ps->gc, &ps->out, prev, seq);
 		else if (seq > (size + size % 2) >> 1 || (size == 3 && seq == 2))
 		{
 			curr = del_nexts_op(ps->gc, &ps->out, curr, seq - 1);
-			if (!ft_strcmp(curr->data, "ra"))
-				curr->data = "rra";
-			else if (!ft_strcmp(curr->data, "rra"))
-				curr->data = "ra";
+			invert_op(curr);
 		}
 		prev = curr;
 		curr = curr->next;

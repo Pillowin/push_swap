@@ -62,9 +62,11 @@ This project will make you sort data on a stack, with a limited set of instructi
 - ~~Fix pivot calculation while creating new ones in A and B~~
 - ~~Fix find_intervall~~
 
-- Play with magic number
-- Norm all
+- ~~Play with magic number~~
+- ~~Norm all~~
 - Test leaks
+- Comment all func
+- Beautify code
 
 - Explicit files in Makefile
 - Remove unneeded flags in Makefile

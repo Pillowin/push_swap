@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 12:57:10 by agautier          #+#    #+#             */
-/*   Updated: 2021/09/22 16:41:32 by agautier         ###   ########.fr       */
+/*   Updated: 2021/10/06 15:01:40 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 */
 static uint16_t	count_bigger(t_list *list, int nbr)
 {
-	t_node	*curr;
+	t_node		*curr;
 	uint16_t	count;
 
 	count = 0;
