@@ -10,8 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-# TODO: norme because SRC need to be explicit
-
 NAME		=	push_swap
 SRC			=	src/sort/find_max.c \
 				src/sort/sort_two.c \
