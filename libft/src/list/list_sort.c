@@ -28,7 +28,6 @@ static void	rev_elem(t_node *curr)
 void	list_sort(t_list *list, int (*cmp)())
 {
 	t_node	*curr;
-	t_node	*prev;
 	int		done;
 
 	done = 0;
@@ -36,7 +35,6 @@ void	list_sort(t_list *list, int (*cmp)())
 	{
 		done = 1;
 		curr = list->begin;
-		prev = NULL;
 		while (curr->next)
 		{
 			if (cmp(curr->data, curr->next->data))
@@ -44,7 +42,6 @@ void	list_sort(t_list *list, int (*cmp)())
 				rev_elem(curr);
 				done = 0;
 			}
-			prev = curr;
 			curr = curr->next;
 		}
 	}

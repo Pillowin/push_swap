@@ -104,13 +104,11 @@ static t_bool	empty_b(t_ps *ps)
 static t_bool	add_pivot(t_ps *ps)
 {
 	t_list		*stack_a;
-	t_list		*stack_b;
 	t_node		*end;
 	uint32_t	median;
 	uint32_t	*ptr;
 
 	stack_a = ps->a;
-	stack_b = ps->b;
 	end = stack_a->end;
 	median = *(uint32_t *)stack_a->end->data
 		+ ((get_greater_pivot(ps, stack_a->begin)

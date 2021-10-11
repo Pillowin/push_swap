@@ -43,9 +43,9 @@ do
 	ret=`./push_swap $arg`
 	if [ "$ret" ]
 	then
-		error=`echo "$ret" | ./test/checker_Mac $arg 2>&1`
+		error=`echo "$ret" | ./test/checker_linux $arg 2>&1`
 	else
-		error=`echo -n "$ret" | ./test/checker_Mac $arg 2>&1`
+		error=`echo -n "$ret" | ./test/checker_linux $arg 2>&1`
 	fi
 	if [ "$error" = "KO" ]
 	then

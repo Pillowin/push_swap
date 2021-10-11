@@ -60,7 +60,7 @@ This project will make you sort data on a stack, with a limited set of instructi
 
 - ~~Play with magic number~~
 - ~~Norm all~~
-- Test leaks
+- ~~Test leaks~~
 - Comment all func
 - Beautify code
 
