@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 11:52:24 by agautier          #+#    #+#             */
-/*   Updated: 2021/05/30 23:00:18 by agautier         ###   ########.fr       */
+/*   Updated: 2021/10/11 17:13:44 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_bool	is_int(char *str)
 		res = res * 10 + (str[i] - '0');
 		i++;
 	}
-	if (res > (uint32_t)INT_MAX + neg)
+	if ((str[i] && !is_digit(str[i])) || res > (uint32_t)INT_MAX + neg)
 		return (FALSE);
 	return (TRUE);
 }

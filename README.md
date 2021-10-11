@@ -3,10 +3,6 @@
 ## Summary
 This project will make you sort data on a stack, with a limited set of instructions, using the lowest possible number of actions. To succeed you’ll have to manipulate various types of algorithms and choose the one (of many) most appropriate solution for an optimized data sorting.
 
-## Fixes
-
-- Handle errors in `sa` `sb` and `ss`
-
 ## Todo
 
 - ~~Implement small garbage collector~~
@@ -68,5 +64,5 @@ This project will make you sort data on a stack, with a limited set of instructi
 - Comment all func
 - Beautify code
 
-- Explicit files in Makefile
-- Remove unneeded flags in Makefile
+- ~~Explicit files in Makefile~~
+- ~~Remove unneeded flags in Makefile~~
