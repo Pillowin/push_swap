@@ -12,16 +12,20 @@
 
 #include "push_swap.h"
 
-static void	ft_putstr(char *str)
+static size_t	ft_strlen(char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
-	{
-		write(1, &str[i], 1);
 		i++;
-	}
+	return (i);
+}
+
+static void	ft_putstr(char *str)
+{
+	write(STDOUT_FILENO, str, ft_strlen(str));
+	write(STDOUT_FILENO, "\n", 1);
 }
 
 /*
